@@ -1,0 +1,21 @@
+/* publico/css/modulos/registro.css · Estilos para la vista de registro */
+.tarjeta-auth {
+  max-width: 520px;
+  margin: var(--espacio-l) auto;
+  padding: var(--espacio-xl);
+}
+
+.campo__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacio-s);
+  font-size: var(--tamano-s);
+  cursor: pointer;
+}
+
+.campo__checkbox input {
+  margin-top: 0.25rem;
+  width: auto;
+  min-height: auto;
+  cursor: pointer;
+}

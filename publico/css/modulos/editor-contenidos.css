@@ -1,0 +1,207 @@
+/* publico/css/modulos/editor-contenidos.css · Estilos para el editor curricular */
+
+.editor-contenedor {
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-xl);
+}
+
+.editor-encabezado {
+  margin-bottom: var(--espacio-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+@media (min-width: 768px) {
+  .editor-encabezado {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.editor-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  color: var(--color-primario);
+}
+
+.editor-subtitulo {
+  color: var(--color-texto-suave);
+  font-size: var(--tamano-base);
+}
+
+.editor-selector-asg {
+  min-width: 280px;
+  max-width: 420px;
+}
+
+.editor-paneles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-l);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .editor-paneles-grid {
+    grid-template-columns: 1fr 1.25fr;
+  }
+}
+
+.panel-cabecera {
+  padding-bottom: var(--espacio-s);
+  margin-bottom: var(--espacio-m);
+  border-bottom: 2px solid var(--color-borde);
+}
+
+.panel-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-xl);
+  color: var(--color-primario);
+}
+
+.panel-subtitulo {
+  font-size: var(--tamano-xs);
+  color: var(--color-acento);
+  font-weight: var(--peso-seminegrita);
+}
+
+/* Lista de Unidades */
+.unidades-lista,
+.temas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.unidad-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-fondo);
+  transition: border-color var(--transicion), background-color var(--transicion);
+  cursor: pointer;
+}
+
+.unidad-item:hover {
+  background-color: var(--color-superficie);
+  border-color: var(--color-acento);
+}
+
+.unidad-item--activa {
+  background-color: var(--color-superficie);
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 1.5px var(--color-acento);
+}
+
+.unidad-item__principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+}
+
+.unidad-item__info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  flex: 1;
+}
+
+.unidad-item__orden {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-negrita);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.unidad-item__titulo {
+  font-weight: var(--peso-seminegrita);
+  font-size: var(--tamano-sm);
+  color: var(--color-texto);
+}
+
+.unidad-item__acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  flex-wrap: wrap;
+  padding-top: var(--espacio-xs);
+  border-top: 1px dashed var(--color-borde);
+}
+
+/* Lista de Temas */
+.tema-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-fondo);
+}
+
+.tema-item:hover {
+  background-color: var(--color-superficie);
+}
+
+.tema-item__principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+}
+
+.tema-item__info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  flex: 1;
+}
+
+.tema-item__orden {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-acento);
+  color: var(--color-texto-inverso);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-negrita);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tema-item__titulo {
+  font-weight: var(--peso-seminegrita);
+  font-size: var(--tamano-sm);
+  color: var(--color-texto);
+}
+
+.tema-item__acciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-xs);
+  flex-wrap: wrap;
+  padding-top: var(--espacio-xs);
+  border-top: 1px dashed var(--color-borde);
+}
+
+.btn-flecha {
+  padding: 2px 6px;
+  font-size: var(--tamano-xs);
+  min-width: 28px;
+}

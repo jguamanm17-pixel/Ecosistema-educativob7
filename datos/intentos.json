@@ -1,0 +1,18 @@
+[
+  {
+    "usuarioId": "usu_000004",
+    "actividad": "quiz",
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "puntaje": 5,
+    "maximo": 6,
+    "errores": 1,
+    "duracionSeg": 0,
+    "detalle": {
+      "aprobado": true
+    },
+    "puntos": 42,
+    "id": "int_000001",
+    "fecha": "2026-10-26T19:59:49.250Z"
+  }
+]

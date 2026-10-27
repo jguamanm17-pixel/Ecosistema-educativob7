@@ -1,0 +1,57 @@
+[
+  {
+    "usuarioId": "usu_000004",
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "preguntasIds": [
+      "pre_000006",
+      "pre_000004",
+      "pre_000001",
+      "pre_000003",
+      "pre_000005",
+      "pre_000002"
+    ],
+    "respuestas": {
+      "pre_000006": {
+        "respuesta": true,
+        "correcto": true,
+        "fecha": "2026-10-26T19:59:49.122Z"
+      },
+      "pre_000004": {
+        "respuesta": "redes",
+        "correcto": true,
+        "fecha": "2026-10-26T19:59:49.146Z"
+      },
+      "pre_000001": {
+        "respuesta": 0,
+        "correcto": true,
+        "fecha": "2026-10-26T19:59:49.164Z"
+      },
+      "pre_000003": {
+        "respuesta": true,
+        "correcto": true,
+        "fecha": "2026-10-26T19:59:49.176Z"
+      },
+      "pre_000005": {
+        "respuesta": 0,
+        "correcto": false,
+        "fecha": "2026-10-26T19:59:49.189Z"
+      },
+      "pre_000002": {
+        "respuesta": 0,
+        "correcto": true,
+        "fecha": "2026-10-26T19:59:49.210Z"
+      }
+    },
+    "inicio": "2026-10-26T19:59:49.108Z",
+    "finalizada": true,
+    "id": "qui_000001",
+    "fecha": "2026-10-26T19:59:49.108Z",
+    "fin": "2026-10-26T19:59:49.224Z",
+    "porcentaje": 83,
+    "aprobado": true,
+    "aciertos": 5,
+    "errores": 1,
+    "total": 6
+  }
+]

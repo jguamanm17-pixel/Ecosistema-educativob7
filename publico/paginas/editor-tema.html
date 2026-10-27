@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha del Tema · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/editor-tema.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor tema-contenedor">
+    <!-- Barra superior de navegación y acciones -->
+    <header class="tema-barra-superior fila" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--espacio-m);">
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <a href="/paginas/editor-contenidos.html" id="enlace-volver" class="tema-volver-enlace">
+          ← Volver a Contenidos
+        </a>
+        <h1 id="titulo-pagina-tema" class="tema-titulo-principal">Ficha del Tema</h1>
+        <div id="miga-tema" class="tema-miga" aria-label="Jerarquía curricular">Cargando ubicación...</div>
+      </div>
+
+      <div class="fila" style="gap: var(--espacio-s); align-items: center;">
+        <button type="button" id="btn-generar-ia" class="btn btn--secundario" disabled title="Función disponible en Sprint 7">
+          ✨ Generar con IA
+        </button>
+        <button type="button" id="btn-guardar-tema" class="btn btn--primario">
+          💾 Guardar cambios
+        </button>
+      </div>
+    </header>
+
+    <div id="alerta-cambios" class="alerta alerta--advertencia oculto" role="status" aria-live="polite">
+      Tienes cambios pendientes sin guardar en este tema.
+    </div>
+
+    <!-- Pestañas o Secciones del Editor: Ficha Didáctica y Glosario -->
+    <div class="pila" style="gap: var(--espacio-xl);">
+      <!-- SECCIÓN 1: FICHA DIDÁCTICA -->
+      <section class="tarjeta tema-seccion" aria-labelledby="titulo-sec-ficha">
+        <h2 id="titulo-sec-ficha" class="tema-seccion__titulo">1. Ficha Didáctica del Tema</h2>
+
+        <form id="form-ficha-tema" class="pila" novalidate style="gap: var(--espacio-m);">
+          <div class="grid-auto" style="gap: var(--espacio-m);">
+            <div class="campo" style="grid-column: span 2;">
+              <label for="tema-titulo">Título del tema</label>
+              <input type="text" id="tema-titulo" required placeholder="Nombre descriptivo del tema">
+              <span class="campo__error" id="error-tema-titulo"></span>
+            </div>
+
+            <div class="campo">
+              <label for="tema-estado">Estado de publicación</label>
+              <select id="tema-estado">
+                <option value="borrador">Borrador (oculto a estudiantes)</option>
+                <option value="publicado">Publicado (visible)</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="tema-dificultad">Nivel de dificultad</label>
+              <select id="tema-dificultad">
+                <option value="basico">Básico</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Resumen con contador y vista previa -->
+          <div class="campo">
+            <div class="fila" style="justify-content: space-between; align-items: flex-end;">
+              <label for="tema-resumen">Resumen teórico del tema</label>
+              <button type="button" id="btn-toggle-vista-resumen" class="btn btn--secundario btn--pequeno" style="padding: 2px 8px;">
+                Vista previa
+              </button>
+            </div>
+            <textarea id="tema-resumen" rows="8" placeholder="Desarrolla el contenido principal del tema. Admite negritas con **texto**, listas con - item y párrafos separados."></textarea>
+            <div id="vista-previa-resumen" class="tema-vista-previa oculto"></div>
+            <div class="tema-contador-barra fila" style="justify-content: space-between;">
+              <span id="contador-resumen">0 palabras</span>
+              <span class="tema-contador-meta">Recomendado: de 300 a 800 palabras</span>
+            </div>
+          </div>
+
+          <!-- Listas dinámicas: Objetivos, Ejemplos, Errores y Preguntas -->
+          <div class="grid-auto" style="gap: var(--espacio-l);">
+            <!-- Objetivos -->
+            <fieldset class="campo-fieldset">
+              <legend class="campo-fieldset__legend">Objetivos de aprendizaje</legend>
+              <div class="fila" style="gap: var(--espacio-xs); margin-bottom: var(--espacio-xs);">
+                <input type="text" id="input-nuevo-objetivo" placeholder="Nuevo objetivo..." aria-label="Nuevo objetivo">
+                <button type="button" id="btn-agregar-objetivo" class="btn btn--secundario btn--pequeno">+</button>
+              </div>
+              <ul id="lista-objetivos" class="items-dinamicos-lista"></ul>
+            </fieldset>
+
+            <!-- Ejemplos -->
+            <fieldset class="campo-fieldset">
+              <legend class="campo-fieldset__legend">Ejemplos de aplicación práctica</legend>
+              <div class="fila" style="gap: var(--espacio-xs); margin-bottom: var(--espacio-xs);">
+                <input type="text" id="input-nuevo-ejemplo" placeholder="Nuevo ejemplo..." aria-label="Nuevo ejemplo">
+                <button type="button" id="btn-agregar-ejemplo" class="btn btn--secundario btn--pequeno">+</button>
+              </div>
+              <ul id="lista-ejemplos" class="items-dinamicos-lista"></ul>
+            </fieldset>
+
+            <!-- Errores frecuentes -->
+            <fieldset class="campo-fieldset">
+              <legend class="campo-fieldset__legend">Errores frecuentes en obra</legend>
+              <div class="fila" style="gap: var(--espacio-xs); margin-bottom: var(--espacio-xs);">
+                <input type="text" id="input-nuevo-error" placeholder="Nuevo error frecuente..." aria-label="Nuevo error frecuente">
+                <button type="button" id="btn-agregar-error" class="btn btn--secundario btn--pequeno">+</button>
+              </div>
+              <ul id="lista-errores" class="items-dinamicos-lista"></ul>
+            </fieldset>
+
+            <!-- Preguntas guía -->
+            <fieldset class="campo-fieldset">
+              <legend class="campo-fieldset__legend">Preguntas de reflexión / guía</legend>
+              <div class="fila" style="gap: var(--espacio-xs); margin-bottom: var(--espacio-xs);">
+                <input type="text" id="input-nueva-pregunta" placeholder="Nueva pregunta guía..." aria-label="Nueva pregunta guía">
+                <button type="button" id="btn-agregar-pregunta" class="btn btn--secundario btn--pequeno">+</button>
+              </div>
+              <ul id="lista-preguntas" class="items-dinamicos-lista"></ul>
+            </fieldset>
+          </div>
+
+          <!-- Recursos Didácticos -->
+          <fieldset class="campo-fieldset">
+            <legend class="campo-fieldset__legend">Recursos didácticos (documentos, videos, imágenes, enlaces)</legend>
+            <div class="recurso-formulario fila" style="gap: var(--espacio-s); align-items: flex-end; flex-wrap: wrap;">
+              <div class="campo" style="min-width: 120px;">
+                <label for="recurso-tipo">Tipo</label>
+                <select id="recurso-tipo">
+                  <option value="pdf">Documento PDF</option>
+                  <option value="imagen">Imagen</option>
+                  <option value="video">Video</option>
+                  <option value="enlace">Enlace web</option>
+                </select>
+              </div>
+              <div class="campo" style="flex: 1; min-width: 180px;">
+                <label for="recurso-titulo">Título del recurso</label>
+                <input type="text" id="recurso-titulo" placeholder="Ej. Manual Técnico INEN">
+              </div>
+              <div class="campo" style="flex: 1.5; min-width: 200px;">
+                <label for="recurso-url">URL o archivo</label>
+                <div class="fila" style="gap: var(--espacio-xs);">
+                  <input type="text" id="recurso-url" placeholder="https://... o ruta del archivo">
+                  <label for="recurso-archivo-subir" id="btn-subir-recurso" class="btn btn--secundario btn--pequeno" style="cursor: pointer; white-space: nowrap;">
+                    Subir
+                  </label>
+                  <input type="file" id="recurso-archivo-subir" class="sr-only">
+                </div>
+              </div>
+              <button type="button" id="btn-agregar-recurso" class="btn btn--primario btn--pequeno" style="margin-bottom: 2px;">
+                + Agregar
+              </button>
+            </div>
+
+            <div id="lista-recursos" class="recursos-lista-contenedor" style="margin-top: var(--espacio-s);">
+              <!-- Renderizado de recursos -->
+            </div>
+          </fieldset>
+
+          <!-- Palabras clave y Fuentes -->
+          <div class="grid-auto" style="gap: var(--espacio-m);">
+            <div class="campo">
+              <label for="tema-palabras">Palabras clave (separadas por coma)</label>
+              <input type="text" id="tema-palabras" placeholder="seguridad, arnes, proteccion, talud">
+            </div>
+            <div class="campo">
+              <label for="tema-fuentes">Fuentes y referencias normativas</label>
+              <input type="text" id="tema-fuentes" placeholder="Normas INEN, Decretos Ejecutivos, OIT...">
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- SECCIÓN 2: GLOSARIO DEL TEMA -->
+      <section class="tarjeta tema-seccion" aria-labelledby="titulo-sec-glosario">
+        <div class="fila" style="justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--espacio-m); margin-bottom: var(--espacio-m);">
+          <div class="pila" style="gap: var(--espacio-xs);">
+            <h2 id="titulo-sec-glosario" class="tema-seccion__titulo" style="margin-bottom: 0;">2. Glosario de Términos</h2>
+            <div class="fila" style="gap: var(--espacio-s); align-items: center; flex-wrap: wrap;">
+              <span class="chip">Total: <strong id="glo-total-indicador">0</strong></span>
+              <span class="chip">Palabras de 6 letras: <strong id="glo-seis-indicador">0</strong></span>
+              <span id="glo-aptitud-badge" class="insignia insignia--advertencia">Requiere mín. 12 términos y 3 de 6 letras</span>
+            </div>
+          </div>
+
+          <button type="button" id="btn-nuevo-termino" class="btn btn--primario btn--pequeno">
+            + Agregar término
+          </button>
+        </div>
+
+        <!-- Tabla editable de glosario -->
+        <div class="tabla-contenedor">
+          <table class="tabla" id="tabla-glosario">
+            <thead>
+              <tr>
+                <th scope="col" style="min-width: 130px;">Término</th>
+                <th scope="col">Definición (máx 25 pal.)</th>
+                <th scope="col">Pista (máx 10 pal.)</th>
+                <th scope="col">Retroalimentación</th>
+                <th scope="col" style="text-align: right; min-width: 140px;">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-glosario">
+              <tr>
+                <td colspan="5" style="text-align: center; padding: var(--espacio-l); color: var(--color-texto-suave);">
+                  Cargando glosario del tema...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/editor-tema.js"></script>
+</body>
+</html>

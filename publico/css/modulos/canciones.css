@@ -1,0 +1,253 @@
+/* publico/css/modulos/canciones.css · Estilos del catálogo de canciones y reproductor */
+.canciones-cabecera {
+  margin-bottom: var(--espacio-l);
+}
+
+.canciones-filtros {
+  padding: var(--espacio-m);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-l);
+  margin-bottom: var(--espacio-l);
+}
+
+.canciones-diseno-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: var(--espacio-l);
+  align-items: start;
+}
+
+@media (max-width: 840px) {
+  .canciones-diseno-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Lista de Canciones */
+.canciones-lista-seccion {
+  background-color: var(--color-superficie);
+  padding: var(--espacio-l);
+  border-radius: var(--radio-l);
+  border: 1px solid var(--color-borde);
+}
+
+.canciones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  max-height: 640px;
+  overflow-y: auto;
+  padding-right: var(--espacio-xs);
+}
+
+.cancion-item {
+  padding: var(--espacio-m);
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-superficie);
+  cursor: pointer;
+  transition: all var(--transicion);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacio-s);
+}
+
+.cancion-item:hover {
+  border-color: var(--color-primario);
+  background-color: var(--color-fondo);
+  transform: translateX(2px);
+}
+
+.cancion-item--activa {
+  border-color: var(--color-acento) !important;
+  background-color: var(--color-advertencia-fondo) !important;
+  box-shadow: var(--sombra-1);
+}
+
+.cancion-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.cancion-item__titulo {
+  font-size: var(--tamano-s);
+  font-weight: var(--peso-negrita);
+  color: var(--color-primario);
+}
+
+.cancion-item--activa .cancion-item__titulo {
+  color: var(--color-acento);
+}
+
+.cancion-item__meta {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+}
+
+/* Panel de Reproductor */
+.canciones-reproductor-seccion {
+  background-color: var(--color-superficie);
+  padding: var(--espacio-l);
+  border-radius: var(--radio-l);
+  border: 1px solid var(--color-borde);
+  position: sticky;
+  top: var(--espacio-m);
+  box-shadow: var(--sombra-1);
+}
+
+.reproductor-cancion-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--espacio-m);
+  margin-bottom: var(--espacio-m);
+}
+
+.cancion-titulo-activo {
+  font-size: var(--tamano-xl);
+  color: var(--color-primario);
+  margin-bottom: 0;
+  line-height: var(--interlineado-apretado);
+}
+
+/* Caja del Reproductor Propio sobre <audio> */
+.reproductor-propio-caja {
+  background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-secundario) 100%);
+  color: var(--color-texto-inverso);
+  padding: var(--espacio-l);
+  border-radius: var(--radio-l);
+  box-shadow: var(--sombra-2);
+  margin-bottom: var(--espacio-l);
+}
+
+.reproductor-tiempo {
+  font-family: var(--fuente-mono);
+  font-size: var(--tamano-xs);
+  color: #BCD0DC;
+  min-width: 42px;
+}
+
+.reproductor-btn-play {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-acento);
+  color: var(--color-texto-inverso);
+  border: none;
+  font-size: var(--tamano-l);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform var(--transicion), background-color var(--transicion);
+  box-shadow: var(--sombra-1);
+}
+
+.reproductor-btn-play:hover {
+  transform: scale(1.06);
+  background-color: #E65C00;
+}
+
+.reproductor-btn-play:focus-visible {
+  outline: 3px solid var(--color-texto-inverso);
+  outline-offset: 2px;
+}
+
+/* Sliders de progreso y volumen */
+.reproductor-progreso-slider,
+.reproductor-volumen-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  height: 6px;
+  border-radius: var(--radio-completo);
+  outline: none;
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.reproductor-progreso-slider {
+  flex: 1;
+}
+
+.reproductor-volumen-slider {
+  width: 90px;
+}
+
+.reproductor-progreso-slider::-webkit-slider-thumb,
+.reproductor-volumen-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-acento);
+  cursor: pointer;
+  transition: transform var(--transicion);
+  border: 2px solid #FFFFFF;
+}
+
+.reproductor-progreso-slider::-webkit-slider-thumb:hover,
+.reproductor-volumen-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Panel de Letras */
+.canciones-letra-panel {
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-m);
+  padding: var(--espacio-m);
+}
+
+.canciones-letra-cuerpo {
+  max-height: 280px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: var(--espacio-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  outline: none;
+}
+
+.canciones-letra-cuerpo:focus-visible {
+  border-radius: var(--radio-s);
+  box-shadow: 0 0 0 2px var(--color-foco);
+}
+
+.linea-lrc {
+  margin: 0;
+  padding: 6px var(--espacio-s);
+  border-radius: var(--radio-s);
+  font-size: var(--tamano-s);
+  color: var(--color-texto-suave);
+  line-height: var(--interlineado-base);
+  cursor: pointer;
+  transition: all var(--transicion);
+}
+
+.linea-lrc:hover {
+  background-color: rgba(0, 46, 69, 0.05);
+  color: var(--color-texto);
+}
+
+.linea-lrc--activa {
+  font-weight: var(--peso-negrita);
+  color: var(--color-acento) !important;
+  background-color: var(--color-advertencia-fondo);
+  border-left: 3px solid var(--color-acento);
+  padding-left: calc(var(--espacio-s) - 3px);
+  transform: scale(1.02);
+  transform-origin: left center;
+}
+
+.letra-plana-texto {
+  font-size: var(--tamano-s);
+  line-height: var(--interlineado-amplio);
+  color: var(--color-texto);
+  white-space: pre-line;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba de datos</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/prueba-datos.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <div class="tarjeta">
+      <h2>Guardar nuevo registro</h2>
+      <p>Guarda elementos en la colección <code>prueba</code> mediante <code>api.crear()</code>.</p>
+      <form id="formulario-prueba" class="pila">
+        <div class="campo">
+          <label for="campo-texto">Texto del registro</label>
+          <input id="campo-texto" name="texto" type="text" placeholder="Escribe el texto a guardar..." required autocomplete="off">
+        </div>
+        <div>
+          <button type="submit" class="btn btn--primario" id="btn-guardar">Guardar en "prueba"</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="tarjeta">
+      <div class="fila" style="justify-content: space-between;">
+        <h2>Registros en la colección</h2>
+        <button type="button" id="btn-recargar" class="btn btn--secundario btn--pequeno">Recargar lista</button>
+      </div>
+      <div id="contenedor-registros">
+        <!-- Contenido renderizado por JS -->
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/prueba-datos.js"></script>
+</body>
+</html>

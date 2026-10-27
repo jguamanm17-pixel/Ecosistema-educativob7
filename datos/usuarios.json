@@ -1,0 +1,137 @@
+[
+  {
+    "id": "usu_000001",
+    "nombre": "Jose",
+    "apellido": "Guaman",
+    "correo": "admin@demo.ec",
+    "rol": "admin",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000002",
+    "nombre": "Roberto",
+    "apellido": "Mendoza",
+    "correo": "docente1@demo.ec",
+    "rol": "docente",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000003",
+    "nombre": "Patricia",
+    "apellido": "Villacís",
+    "correo": "docente2@demo.ec",
+    "rol": "docente",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000004",
+    "nombre": "Ana",
+    "apellido": "Pérez",
+    "correo": "estudiante1@demo.ec",
+    "rol": "estudiante",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000005",
+    "nombre": "Luis",
+    "apellido": "Gómez",
+    "correo": "estudiante2@demo.ec",
+    "rol": "estudiante",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000006",
+    "nombre": "María",
+    "apellido": "Torres",
+    "correo": "estudiante3@demo.ec",
+    "rol": "estudiante",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000007",
+    "nombre": "Javier",
+    "apellido": "Ríos",
+    "correo": "estudiante4@demo.ec",
+    "rol": "estudiante",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000008",
+    "nombre": "Elena",
+    "apellido": "Morales",
+    "correo": "estudiante5@demo.ec",
+    "rol": "estudiante",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  },
+  {
+    "id": "usu_000009",
+    "nombre": "David",
+    "apellido": "Castillo",
+    "correo": "estudiante6@demo.ec",
+    "rol": "estudiante",
+    "activo": true,
+    "foto": null,
+    "consentimiento": {
+      "aceptado": true,
+      "fecha": "2026-10-24T00:00:00.000Z"
+    },
+    "fecha": "2026-10-24T00:00:00.000Z",
+    "claveHash": "$2a$10$kXNNveHPKWoeuQ9WND.k8uFPp2Pv5d4CrJmhFu6hifO4AfBqm0xDq"
+  }
+]

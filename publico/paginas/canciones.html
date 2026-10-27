@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canciones educativas · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/canciones.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <header class="canciones-cabecera">
+      <div class="fila" style="justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: var(--espacio-m);">
+        <div class="pila" style="gap: var(--espacio-xs);">
+          <h1 style="margin-bottom: 0;">Canciones Educativas</h1>
+          <p style="color: var(--color-texto-suave); margin-bottom: 0;">Aprende y refuerza tus competencias con música y letras sincronizadas.</p>
+        </div>
+        <div id="bloque-accion-docente" style="display: none;">
+          <a href="/paginas/editor-cancion.html" class="btn btn--primario">
+            + Nueva canción
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Barra de Filtros -->
+    <section class="tarjeta canciones-filtros" aria-label="Filtros de canciones">
+      <div class="fila" style="gap: var(--espacio-m); flex-wrap: wrap; align-items: center; justify-content: space-between;">
+        <div class="fila" style="gap: var(--espacio-s); flex-wrap: wrap; flex: 1;">
+          <div style="min-width: 180px;">
+            <label for="filtro-asignatura" class="sr-only">Filtrar por asignatura</label>
+            <select id="filtro-asignatura" class="campo campo--pequeno">
+              <option value="">Todas las asignaturas</option>
+            </select>
+          </div>
+
+          <div style="min-width: 200px; flex: 1;">
+            <label for="filtro-tema" class="sr-only">Filtrar por tema</label>
+            <select id="filtro-tema" class="campo campo--pequeno">
+              <option value="">Todos los temas</option>
+            </select>
+          </div>
+        </div>
+
+        <span id="contador-canciones" style="font-size: var(--tamano-xs); color: var(--color-texto-suave); white-space: nowrap;">
+          Cargando canciones...
+        </span>
+      </div>
+    </section>
+
+    <!-- Disposición Principal: Lista y Reproductor con Letras -->
+    <div class="canciones-diseno-grid">
+      <!-- Lista de Canciones -->
+      <section class="tarjeta canciones-lista-seccion" aria-label="Listado de canciones disponibles">
+        <h2 style="font-size: var(--tamano-m); color: var(--color-primario); margin-bottom: var(--espacio-m);">
+          Repertorio académico
+        </h2>
+        <div id="contenedor-canciones-lista" class="canciones-lista" role="list">
+          <!-- Elementos dinámicos -->
+        </div>
+      </section>
+
+      <!-- Panel de Reproducción y Letra -->
+      <section class="tarjeta canciones-reproductor-seccion" aria-label="Reproductor y letra de la canción">
+        <div id="estado-reproductor-vacio" class="vacio" style="border: none; padding: var(--espacio-2xl);">
+          <span style="font-size: 3rem;" aria-hidden="true">🎵</span>
+          <h3>Selecciona una canción</h3>
+          <p>Elige cualquier canción del repertorio para iniciar la reproducción y visualizar su letra.</p>
+        </div>
+
+        <div id="cuerpo-reproductor" style="display: none;" class="pila" style="gap: var(--espacio-m);">
+          <!-- Cabecera de la canción activa -->
+          <div class="reproductor-cancion-cabecera">
+            <div class="pila" style="gap: var(--espacio-xs);">
+              <span id="cancion-tema-etiqueta" class="insignia insignia--secundario" style="align-self: flex-start;"></span>
+              <h2 id="cancion-titulo" class="cancion-titulo-activo">Título de la canción</h2>
+              <div class="fila" style="gap: var(--espacio-s); font-size: var(--tamano-xs); color: var(--color-texto-suave); flex-wrap: wrap;">
+                <span id="cancion-autoria"></span>
+                <span>•</span>
+                <span id="cancion-licencia" class="insignia" style="background-color: var(--color-fondo); border: 1px solid var(--color-borde); font-size: 11px;"></span>
+              </div>
+            </div>
+
+            <div id="bloque-editar-cancion-activa" style="display: none;">
+              <a id="enlace-editar-cancion-activa" href="#" class="btn btn--secundario btn--pequeno">
+                Editar canción
+              </a>
+            </div>
+          </div>
+
+          <!-- Reproductor Propio sobre <audio> -->
+          <div class="reproductor-propio-caja">
+            <audio id="audio-elemento" preload="metadata"></audio>
+
+            <!-- Barra de Progreso y Tiempos -->
+            <div class="fila" style="gap: var(--espacio-s); align-items: center; width: 100%;">
+              <time id="tiempo-actual" class="reproductor-tiempo">00:00</time>
+              <input type="range" id="barra-progreso" min="0" max="100" value="0" step="0.1" class="reproductor-progreso-slider" aria-label="Progreso de reproducción">
+              <time id="tiempo-total" class="reproductor-tiempo">00:00</time>
+            </div>
+
+            <!-- Controles: Play/Pausa y Volumen -->
+            <div class="fila" style="justify-content: space-between; align-items: center; width: 100%; margin-top: var(--espacio-s); flex-wrap: wrap; gap: var(--espacio-s);">
+              <div class="fila" style="gap: var(--espacio-s); align-items: center;">
+                <button type="button" id="btn-reproducir" class="reproductor-btn-play" aria-label="Reproducir canción">
+                  <span id="icono-play" aria-hidden="true">▶</span>
+                </button>
+                <button type="button" id="btn-reiniciar" class="btn btn--secundario btn--pequeno" aria-label="Reiniciar canción" title="Volver al inicio">
+                  ↺
+                </button>
+              </div>
+
+              <!-- Control de Volumen -->
+              <div class="fila" style="gap: var(--espacio-xs); align-items: center;">
+                <button type="button" id="btn-silenciar" class="btn btn--fantasma btn--pequeno" aria-label="Silenciar o activar audio">
+                  <span id="icono-volumen" aria-hidden="true">🔊</span>
+                </button>
+                <input type="range" id="barra-volumen" min="0" max="1" step="0.05" value="1" class="reproductor-volumen-slider" aria-label="Control de volumen">
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel de Letras -->
+          <div class="canciones-letra-panel">
+            <div class="fila" style="justify-content: space-between; align-items: center; margin-bottom: var(--espacio-s); border-bottom: 1px solid var(--color-borde); padding-bottom: var(--espacio-xs);">
+              <h3 style="font-size: var(--tamano-s); color: var(--color-primario); margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+                Letra
+              </h3>
+              <span id="indicador-lrc" class="insignia insignia--exito" style="display: none; font-size: 11px;">
+                Sincronizada (LRC)
+              </span>
+            </div>
+
+            <div id="contenedor-letras" class="canciones-letra-cuerpo" tabindex="0" aria-label="Letra de la canción">
+              <!-- Líneas LRC o texto de la letra -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/canciones.js"></script>
+</body>
+</html>

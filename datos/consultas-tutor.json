@@ -1,0 +1,29 @@
+[
+  {
+    "usuarioId": "usu_000004",
+    "asignaturaId": "asi_000001",
+    "temaId": "tem_000001",
+    "dia": "2026-10-26",
+    "mensajes": 1,
+    "fecha": "2026-10-26T20:32:54.288Z",
+    "id": "con_000001"
+  },
+  {
+    "usuarioId": "usu_000004",
+    "asignaturaId": "asi_000001",
+    "temaId": "general",
+    "dia": "2026-10-26",
+    "mensajes": 1,
+    "fecha": "2026-10-26T20:32:56.817Z",
+    "id": "con_000002"
+  },
+  {
+    "usuarioId": "usu_000004",
+    "asignaturaId": "asi_000001",
+    "temaId": "general",
+    "dia": "2026-10-27",
+    "mensajes": 3,
+    "fecha": "2026-10-27T00:33:45.836Z",
+    "id": "con_000003"
+  }
+]

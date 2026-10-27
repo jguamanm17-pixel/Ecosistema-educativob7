@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configuración de Inteligencia Artificial · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <style>
+    .admin-ia-contenedor {
+      max-width: 800px;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--espacio-l);
+      padding-block: var(--espacio-l);
+    }
+    .admin-ia-encabezado {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--espacio-m);
+    }
+    .admin-ia-titulo {
+      font-size: var(--tamano-2xl);
+      color: var(--color-primario);
+      margin-bottom: var(--espacio-xs);
+    }
+    .admin-ia-subtitulo {
+      color: var(--color-texto-suave);
+      font-size: var(--tamano-s);
+      margin-bottom: 0;
+    }
+    .ia-estado-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--espacio-xs);
+      padding: var(--espacio-xs) var(--espacio-m);
+      border-radius: var(--radio-completo);
+      font-size: var(--tamano-xs);
+      font-weight: var(--peso-negrita);
+    }
+    .ia-estado-badge.conectado {
+      background-color: var(--color-exito-fondo);
+      color: var(--color-exito);
+      border: 1px solid var(--color-exito);
+    }
+    .ia-estado-badge.desconectado {
+      background-color: var(--color-advertencia-fondo);
+      color: var(--color-advertencia);
+      border: 1px solid var(--color-advertencia);
+    }
+    .ia-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--espacio-l);
+    }
+    .ia-acciones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: var(--espacio-s);
+      border-top: 1px solid var(--color-borde);
+      padding-top: var(--espacio-m);
+    }
+    .ia-caja-prueba {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--espacio-m);
+      padding: var(--espacio-m);
+      border-radius: var(--radio-m);
+      font-size: var(--tamano-s);
+    }
+  </style>
+</head>
+<body>
+  <div id="plantilla"></div>
+
+  <main id="contenido" class="contenedor admin-ia-contenedor">
+    <header class="admin-ia-encabezado">
+      <div>
+        <h1 class="admin-ia-titulo">Configuración de Inteligencia Artificial</h1>
+        <p class="admin-ia-subtitulo">
+          Configuración global del proveedor Google Gemini, API Key y modelo de generación.
+        </p>
+      </div>
+
+      <div id="badge-estado-ia" class="ia-estado-badge desconectado">
+        <span aria-hidden="true">●</span> <span id="texto-estado-ia">Consultando estado...</span>
+      </div>
+    </header>
+
+    <!-- Tarjeta de Configuración -->
+    <section class="tarjeta" aria-label="Parámetros de conexión con Google Gemini">
+      <form id="form-config-ia" class="ia-form">
+        <!-- Proveedor -->
+        <div class="campo">
+          <label for="cfg-ia-proveedor" class="campo__etiqueta"><strong>Proveedor de IA:</strong></label>
+          <select id="cfg-ia-proveedor" class="campo__control" disabled>
+            <option value="gemini" selected>Google Gemini (API oficial generativelanguage.googleapis.com)</option>
+          </select>
+          <span class="campo__ayuda">Proveedor activo por defecto en el ecosistema UNEMI.</span>
+        </div>
+
+        <!-- API Key -->
+        <div class="campo">
+          <label for="cfg-ia-clave" class="campo__etiqueta"><strong>API Key de Gemini:</strong></label>
+          <div style="display: flex; gap: var(--espacio-xs);">
+            <input
+              type="password"
+              id="cfg-ia-clave"
+              class="campo__control"
+              placeholder="Introduce la clave de Google Gemini (ej: AIzaSy...)"
+              autocomplete="off"
+            >
+            <button type="button" id="btn-toggle-clave" class="btn btn--secundario" title="Mostrar u ocultar clave">
+              👁️
+            </button>
+          </div>
+          <span id="ayuda-clave-actual" class="campo__ayuda">
+            Sin clave configurada. La plataforma utilizará el generador de respaldo formativo local.
+          </span>
+        </div>
+
+        <!-- Modelo de IA -->
+        <div class="campo">
+          <label for="cfg-ia-modelo" class="campo__etiqueta"><strong>Modelo de IA:</strong></label>
+          <input
+            type="text"
+            id="cfg-ia-modelo"
+            class="campo__control"
+            list="lista-modelos"
+            placeholder="Selecciona o escribe el modelo (ej: gemini-3.8-flash o gemini-4-argon)"
+            required
+          >
+          <datalist id="lista-modelos">
+            <option value="gemini-3.8-flash"></option>
+            <option value="gemini-4-argon"></option>
+            <option value="gemini-2.5-flash"></option>
+            <option value="gemini-2.0-flash"></option>
+            <option value="gemini-1.5-flash"></option>
+            <option value="gemini-1.5-pro"></option>
+          </datalist>
+          <span class="campo__ayuda">
+            Modelos solicitados: <code>gemini-3.8-flash</code> y <code>gemini-4-argon</code>. Puedes escribir cualquier nombre de modelo compatible con Google Gemini.
+          </span>
+        </div>
+
+        <!-- Caja de resultado de prueba en vivo -->
+        <div id="caja-resultado-prueba" class="ia-caja-prueba" hidden>
+          <span id="icono-resultado" style="font-size: var(--tamano-xl); line-height: 1;">ℹ️</span>
+          <div id="mensaje-resultado" style="flex: 1;"></div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <footer class="ia-acciones">
+          <button type="button" id="btn-probar-conexion" class="btn btn--secundario">
+            <span aria-hidden="true">🔌</span> Probar conexión en vivo
+          </button>
+          <button type="submit" id="btn-guardar-config" class="btn btn--primario">
+            <span aria-hidden="true">💾</span> Guardar configuración
+          </button>
+        </footer>
+      </form>
+    </section>
+
+    <!-- Acceso rápido -->
+    <section class="tarjeta" style="background-color: var(--color-info-fondo); border-color: var(--color-info);">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--espacio-m);">
+        <div>
+          <h3 style="color: var(--color-primario); margin-bottom: var(--espacio-xs);">¿Quieres generar preguntas pedagógicas?</h3>
+          <p style="margin-bottom: 0; font-size: var(--tamano-s); color: var(--color-texto);">
+            Una vez configurada tu clave y modelo, puedes ir al Banco de preguntas para generar y revisar preguntas de opción múltiple, verdadero/falso y completar.
+          </p>
+        </div>
+        <a href="/paginas/banco-preguntas.html" class="btn btn--primario">
+          Ir a Banco de preguntas →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/js/modulos/admin-ia.js"></script>
+</body>
+</html>

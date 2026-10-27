@@ -1,0 +1,65 @@
+[
+  {
+    "token": "8e306736767a8042ae7252c2ef40d1b5d932fb143ff7690b1618df8968300137",
+    "usuarioId": "usu_000001",
+    "expira": "2026-10-27T02:53:52.173Z",
+    "id": "ses_000001",
+    "fecha": "2026-10-26T18:53:52.174Z"
+  },
+  {
+    "token": "cc4a53867f8fd7152e9e8eda8ca5407ff2fbd52e5b43b685a8f6f3c3f0a64568",
+    "usuarioId": "usu_000004",
+    "expira": "2026-10-27T03:59:48.944Z",
+    "id": "ses_000003",
+    "fecha": "2026-10-26T19:59:48.946Z"
+  },
+  {
+    "token": "a653ced6a324795526cfd5610c5a7a7aaa866f96d0970aec88d1031958a670ce",
+    "usuarioId": "usu_000002",
+    "expira": "2026-10-27T03:59:49.038Z",
+    "id": "ses_000004",
+    "fecha": "2026-10-26T19:59:49.039Z"
+  },
+  {
+    "token": "453a8445dfbe2b54b97cdf1d428eddf6792eaa10a9586f3b6767c65acdbb5794",
+    "usuarioId": "usu_000004",
+    "expira": "2026-10-27T04:00:08.557Z",
+    "id": "ses_000005",
+    "fecha": "2026-10-26T20:00:08.558Z"
+  },
+  {
+    "token": "eedb0a768c91bbeeda6d40c612f7653c9f2b7097bd4dfc6a7224e72af7f3eba1",
+    "usuarioId": "usu_000002",
+    "expira": "2026-10-27T04:00:08.648Z",
+    "id": "ses_000006",
+    "fecha": "2026-10-26T20:00:08.649Z"
+  },
+  {
+    "token": "481a12a1c9a9ebab491d211c9ae585eaca3af6e4be4a6fe238c0f4a269084062",
+    "usuarioId": "usu_000004",
+    "expira": "2026-10-27T04:14:52.384Z",
+    "id": "ses_000007",
+    "fecha": "2026-10-26T20:14:52.385Z"
+  },
+  {
+    "token": "86ece2209dc9856947cb0814f4ca8985046173944df1237150b7428f4994653b",
+    "usuarioId": "usu_000002",
+    "expira": "2026-10-27T04:24:04.196Z",
+    "id": "ses_000008",
+    "fecha": "2026-10-26T20:24:04.198Z"
+  },
+  {
+    "token": "b104328bdb371c1e6ef20d2bff9db8da4504c0ed5e651ce5a360de29bee6af94",
+    "usuarioId": "usu_000004",
+    "expira": "2026-10-27T04:32:54.177Z",
+    "id": "ses_000009",
+    "fecha": "2026-10-26T20:32:54.182Z"
+  },
+  {
+    "token": "aca1bb79b2bd37a1fe60995a2b10467e6411a0be33b3d46373a300bd7e08d21a",
+    "usuarioId": "usu_000001",
+    "expira": "2026-10-27T08:58:23.239Z",
+    "id": "ses_000010",
+    "fecha": "2026-10-27T00:58:23.240Z"
+  }
+]

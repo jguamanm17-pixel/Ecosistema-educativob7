@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noticia · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/noticia.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <article class="noticia-detalle-contenedor" aria-labelledby="noticia-titulo">
+      <nav aria-label="Navegación de retorno" style="margin-bottom: var(--espacio-m);">
+        <a href="/paginas/noticias.html" class="enlace-volver">← Volver a Noticias</a>
+      </nav>
+
+      <header class="noticia-detalle__cabecera">
+        <div class="fila" style="gap: var(--espacio-xs); align-items: center; margin-bottom: var(--espacio-xs); flex-wrap: wrap;">
+          <span id="noticia-categoria" class="insignia insignia--secundario">Institucional</span>
+          <span id="noticia-badge-destacada" class="insignia insignia--acento" style="display: none;">★ Destacada</span>
+          <span id="noticia-badge-borrador" class="insignia insignia--advertencia" style="display: none;">Borrador</span>
+        </div>
+
+        <h1 id="noticia-titulo" class="noticia-detalle__titulo">Cargando noticia...</h1>
+
+        <div class="fila" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--espacio-s); margin-top: var(--espacio-s); padding-bottom: var(--espacio-s); border-bottom: 1px solid var(--color-borde);">
+          <div class="fila" style="gap: var(--espacio-m); font-size: var(--tamano-s); color: var(--color-texto-suave);">
+            <time id="noticia-fecha"></time>
+            <span id="noticia-autor"></span>
+          </div>
+
+          <div id="bloque-editar-noticia" style="display: none;">
+            <a id="enlace-editar-noticia" href="#" class="btn btn--secundario btn--pequeno">
+              ✏️ Editar noticia
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Imagen de portada grande si existe -->
+      <div id="contenedor-imagen-portada" class="noticia-detalle__portada-caja" style="display: none;">
+        <img id="noticia-imagen" src="" alt="" class="noticia-detalle__imagen">
+      </div>
+
+      <!-- Resumen introductorio -->
+      <div class="noticia-detalle__resumen-caja">
+        <p id="noticia-resumen" class="noticia-detalle__resumen"></p>
+      </div>
+
+      <!-- Cuerpo completo con formato básico -->
+      <div id="noticia-cuerpo" class="noticia-detalle__cuerpo"></div>
+
+      <!-- Caja de tema relacionado si aplica -->
+      <aside id="noticia-tema-relacionado" class="tarjeta noticia-tema-caja" style="display: none; margin-top: var(--espacio-2xl);" aria-label="Tema académico relacionado">
+        <div class="fila" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--espacio-m);">
+          <div class="pila" style="gap: var(--espacio-xs);">
+            <span style="font-size: var(--tamano-xs); text-transform: uppercase; color: var(--color-texto-suave); font-weight: var(--peso-negrita); letter-spacing: 0.5px;">Tema académico vinculado</span>
+            <h2 id="tema-relacionado-titulo" style="font-size: var(--tamano-l); margin-bottom: 0; color: var(--color-primario);">Título del tema</h2>
+          </div>
+          <a id="enlace-tema-relacionado" href="#" class="btn btn--primario btn--pequeno">
+            Estudiar este tema →
+          </a>
+        </div>
+      </aside>
+
+      <footer style="margin-top: var(--espacio-2xl); padding-top: var(--espacio-m); border-top: 1px solid var(--color-borde);">
+        <a href="/paginas/noticias.html" class="btn btn--secundario">← Volver al catálogo de noticias</a>
+      </footer>
+    </article>
+  </main>
+  <script type="module" src="/js/modulos/noticia.js"></script>
+</body>
+</html>

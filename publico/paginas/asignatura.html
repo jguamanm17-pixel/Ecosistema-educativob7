@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asignatura · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/asignatura.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor materia-contenedor">
+    <header class="materia-encabezado">
+      <a href="/paginas/asignaturas.html" class="materia-volver">← Volver a Mis asignaturas</a>
+      <div class="fila" style="justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: var(--espacio-m); margin-top: var(--espacio-xs);">
+        <div class="pila" style="gap: var(--espacio-xs);">
+          <span id="materia-nivel" class="materia-nivel">Educación Superior</span>
+          <h1 id="materia-titulo" class="materia-titulo">Cargando asignatura...</h1>
+          <p id="materia-descripcion" class="materia-descripcion"></p>
+        </div>
+        <div id="materia-resumen-avance" class="materia-avance-box pila"></div>
+      </div>
+    </header>
+
+    <!-- Banner estratégico del Tutor Socrático -->
+    <section id="tutor-banner" class="tutor-banner-card" aria-label="Acceso al Tutor Socrático IA">
+      <div class="tutor-banner-info">
+        <div class="tutor-banner-icono-wrapper" aria-hidden="true">
+          <span class="tutor-banner-icono">🤖</span>
+          <span class="tutor-banner-pulso"></span>
+        </div>
+        <div class="pila" style="gap: var(--espacio-2xs);">
+          <div class="fila" style="gap: var(--espacio-xs); align-items: center; flex-wrap: wrap;">
+            <span class="insignia insignia--primario" style="font-size: var(--tamano-xs);">Tutor Socrático IA</span>
+            <span class="insignia insignia--exito" style="font-size: 11px;">En línea · Adaptativo</span>
+          </div>
+          <h2 class="tutor-banner-titulo">¿Dudas con los contenidos? Razona con tu Tutor Virtual</h2>
+          <p class="tutor-banner-subtexto">
+            Aprende mediante preguntas guía, pistas personalizadas y análisis reflexivo sin darte respuestas directas.
+          </p>
+        </div>
+      </div>
+      <div class="tutor-banner-acciones">
+        <button id="btn-iniciar-tutor-banner" class="btn btn--primario" type="button">
+          💬 Conversar con el Tutor
+        </button>
+      </div>
+    </section>
+
+    <!-- Listado de unidades y temas -->
+    <section id="contenedor-unidades" class="unidades-academico-lista" aria-label="Unidades y temas de la asignatura">
+      <div class="tarjeta" style="text-align: center; padding: var(--espacio-xl); color: var(--color-texto-suave);">
+        Cargando contenidos académicos...
+      </div>
+    </section>
+  </main>
+
+  <!-- Botón flotante accesible del Tutor -->
+  <button id="btn-tutor-flotante" class="tutor-boton-flotante" type="button" aria-expanded="false" aria-controls="tutor-panel" aria-label="Abrir tutor virtual socrático">
+    <span class="tutor-flotante-icono" aria-hidden="true">🤖</span>
+    <span class="tutor-flotante-label">Tutor Socrático</span>
+    <span class="tutor-indicador-online" title="Tutor activo"></span>
+  </button>
+
+  <!-- Widget de Chat Socrático Moderno -->
+  <aside id="tutor-panel" class="tutor-chat-widget" aria-label="Chat con el Tutor Socrático IA" hidden>
+    <header class="tutor-chat-header">
+      <div class="tutor-chat-perfil">
+        <div class="tutor-chat-avatar" aria-hidden="true">
+          🤖
+          <span class="tutor-chat-avatar-status"></span>
+        </div>
+        <div>
+          <h3 class="tutor-chat-nombre">Tutor Socrático IA</h3>
+          <p id="tutor-chat-asg-nombre" class="tutor-chat-asg">Asignatura</p>
+        </div>
+      </div>
+      <div class="tutor-chat-controles">
+        <button id="btn-tutor-reiniciar" class="btn-icono-pequeno" type="button" title="Reiniciar sesión y comenzar de nuevo" aria-label="Reiniciar conversación">
+          🔄
+        </button>
+        <button id="btn-tutor-cerrar" class="btn-icono-pequeno" type="button" title="Minimizar chat" aria-label="Cerrar chat socrático">
+          ✕
+        </button>
+      </div>
+    </header>
+
+    <!-- Selector de foco temático -->
+    <div class="tutor-chat-foco">
+      <label for="tutor-tema-selector" class="tutor-foco-label">Foco temático:</label>
+      <select id="tutor-tema-selector" class="campo tutor-foco-select">
+        <option value="todos">Toda la asignatura</option>
+      </select>
+    </div>
+
+    <!-- Área de mensajes -->
+    <div id="tutor-mensajes" class="tutor-chat-mensajes" role="log" aria-live="polite">
+      <!-- Los mensajes se inyectan dinámicamente -->
+    </div>
+
+    <!-- Indicador de razonamiento / pensamiento -->
+    <div id="tutor-pensando" class="tutor-pensando-box" hidden>
+      <div class="tutor-pensando-puntos">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="tutor-pensando-texto">El tutor socrático está analizando...</span>
+    </div>
+
+    <!-- Sugerencias rápidas de preguntas guía -->
+    <div id="tutor-sugerencias" class="tutor-sugerencias-fila" aria-label="Preguntas guía sugeridas">
+      <!-- Chips sugeridos inyectados por JS -->
+    </div>
+
+    <!-- Barra de entrada -->
+    <form id="tutor-formulario" class="tutor-chat-form">
+      <div class="tutor-input-wrapper">
+        <textarea
+          id="tutor-input"
+          class="campo tutor-textarea"
+          rows="1"
+          placeholder="Escribe tu razonamiento o duda curricular..."
+          aria-label="Mensaje para el tutor socrático"
+          required
+        ></textarea>
+        <button id="btn-tutor-enviar" class="btn btn--primario tutor-btn-enviar" type="submit" aria-label="Enviar mensaje">
+          ➤
+        </button>
+      </div>
+      <div class="tutor-meta-info">
+        <span id="tutor-contador-hoy">Consultas de hoy: ...</span>
+        <button id="btn-pedir-pista" class="tutor-btn-pista" type="button">💡 Pedir pista socrática</button>
+      </div>
+    </form>
+  </aside>
+
+  <script type="module" src="/js/modulos/asignatura.js"></script>
+</body>
+</html>

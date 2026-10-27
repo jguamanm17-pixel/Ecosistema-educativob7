@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asignaturas · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/admin-asignaturas.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor asignaturas-contenedor">
+    <header class="asignaturas-encabezado fila" style="justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--espacio-m);">
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1 class="asignaturas-titulo">Gestión de Asignaturas</h1>
+        <p class="asignaturas-subtitulo">Administra los programas académicos y materias disponibles en la plataforma.</p>
+      </div>
+      <button type="button" id="btn-nueva-asignatura" class="btn btn--primario">
+        + Nueva asignatura
+      </button>
+    </header>
+
+    <!-- Lista de tarjetas de asignaturas -->
+    <section class="asignaturas-cuadricula" id="cuadricula-asignaturas" aria-label="Listado de asignaturas">
+      <div class="tarjeta" style="text-align: center; padding: var(--espacio-xl); color: var(--color-texto-suave); grid-column: 1 / -1;">
+        Cargando asignaturas...
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/js/modulos/admin-asignaturas.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* publico/css/modulos/admin-usuarios.css · Estilos para la administración de usuarios */
+
+.admin-contenedor {
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-xl);
+}
+
+.admin-encabezado {
+  margin-bottom: var(--espacio-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.admin-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  color: var(--color-primario);
+}
+
+.admin-subtitulo {
+  color: var(--color-texto-suave);
+  font-size: var(--tamano-base);
+}
+
+.admin-filtros {
+  background-color: var(--color-superficie);
+  padding: var(--espacio-m);
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  box-shadow: var(--sombra-1);
+}
+
+.admin-tarjeta-tabla {
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-superficie);
+  box-shadow: var(--sombra-1);
+}
+
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.admin-usuario-celda {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+}
+
+.admin-usuario-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radio-completo);
+  overflow: hidden;
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--tamano-s);
+  font-weight: var(--peso-negrita);
+  flex-shrink: 0;
+  border: 1.5px solid var(--color-acento);
+}
+
+.admin-usuario-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-usuario-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-usuario-nombre {
+  font-weight: var(--peso-seminegrita);
+  color: var(--color-texto);
+}
+
+.admin-usuario-id {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+}
+
+.admin-select-rol {
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-s);
+  border: 1px solid var(--color-borde);
+  font-size: var(--tamano-s);
+  background-color: var(--color-fondo);
+}
+
+.admin-select-rol:focus {
+  outline: 2px solid var(--color-acento);
+}
+
+.admin-checkbox-activo {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primario);
+  cursor: pointer;
+}

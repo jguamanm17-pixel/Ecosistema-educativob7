@@ -1,0 +1,479 @@
+/* publico/css/componentes.css · Biblioteca de componentes del ecosistema UNEMI */
+
+/* --- 1. Botones (.btn) --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-s);
+  min-height: 2.75rem; /* ~44px accesible */
+  padding: var(--espacio-s) var(--espacio-l);
+  border: 1px solid transparent;
+  border-radius: var(--radio-m);
+  font-family: var(--fuente-base);
+  font-size: var(--tamano-s);
+  font-weight: var(--peso-negrita);
+  line-height: var(--interlineado-apretado);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--transicion), transform 0.1s ease, border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primario,
+.btn-primario {
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+}
+
+.btn--primario:hover,
+.btn-primario:hover {
+  background-color: var(--color-secundario);
+  text-decoration: none;
+  color: var(--color-texto-inverso);
+}
+
+.btn--secundario,
+.btn-secundario {
+  background-color: var(--color-superficie);
+  color: var(--color-primario);
+  border-color: var(--color-borde);
+}
+
+.btn--secundario:hover,
+.btn-secundario:hover {
+  background-color: var(--color-fondo);
+  text-decoration: none;
+}
+
+.btn--peligro {
+  background-color: var(--color-error);
+  color: var(--color-texto-inverso);
+}
+
+.btn--peligro:hover {
+  background-color: #8E1F18; /* PROVISIONAL: oscurecimiento accesible */
+  text-decoration: none;
+  color: var(--color-texto-inverso);
+}
+
+.btn--texto {
+  background-color: transparent;
+  color: var(--color-info);
+  padding-inline: var(--espacio-xs);
+  min-height: auto;
+}
+
+.btn--texto:hover {
+  color: var(--color-primario);
+  text-decoration: underline;
+}
+
+.btn--pequeno {
+  min-height: 2rem;
+  padding: var(--espacio-xs) var(--espacio-s);
+  font-size: var(--tamano-xs);
+}
+
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- 2. Tarjetas (.tarjeta) --- */
+.tarjeta {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  transition: box-shadow var(--transicion), transform var(--transicion);
+}
+
+.tarjeta--interactiva:hover {
+  box-shadow: var(--sombra-2);
+  transform: translateY(-2px);
+}
+
+/* --- 3. Formularios y campos (.campo) --- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  width: 100%;
+}
+
+.campo label {
+  font-size: var(--tamano-s);
+  font-weight: var(--peso-seminegrita);
+  color: var(--color-texto);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--espacio-s) var(--espacio-m);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-m);
+  background-color: var(--color-superficie);
+  color: var(--color-texto);
+  font-size: var(--tamano-m);
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.campo textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--color-foco);
+  outline: 3px solid var(--color-foco-anillo);
+  outline-offset: 1px;
+}
+
+.campo__error {
+  font-size: var(--tamano-xs);
+  color: var(--color-error);
+  font-weight: var(--peso-medio);
+}
+
+/* --- 4. Alertas (.alerta) --- */
+.alerta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-m);
+  border: 1px solid var(--color-borde);
+  border-left-width: var(--radio-s);
+  border-radius: var(--radio-m);
+  font-size: var(--tamano-s);
+  line-height: var(--interlineado-base);
+}
+
+.alerta strong {
+  font-size: var(--tamano-m);
+  color: var(--color-texto);
+}
+
+.alerta--info {
+  background-color: var(--color-info-fondo);
+  border-left-color: var(--color-info);
+}
+
+.alerta--exito {
+  background-color: var(--color-exito-fondo);
+  border-left-color: var(--color-exito);
+}
+
+.alerta--advertencia {
+  background-color: var(--color-advertencia-fondo);
+  border-left-color: var(--color-advertencia);
+}
+
+.alerta--error {
+  background-color: var(--color-error-fondo);
+  border-left-color: var(--color-error);
+}
+
+/* --- 5. Tablas accesibles (.tabla) --- */
+.tabla {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-m);
+  background-color: var(--color-superficie);
+}
+
+.tabla table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--tamano-s);
+  text-align: left;
+}
+
+.tabla th,
+.tabla td {
+  padding: var(--espacio-s) var(--espacio-m);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla th {
+  background-color: var(--color-fondo);
+  color: var(--color-primario);
+  font-weight: var(--peso-negrita);
+  white-space: nowrap;
+}
+
+.tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla tbody tr:hover {
+  background-color: var(--color-fondo);
+}
+
+/* --- 6. Diálogos modales (.modal) --- */
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 46, 69, 0.65);
+  display: grid;
+  place-items: center;
+  padding: var(--espacio-m);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-l);
+  box-shadow: var(--sombra-3);
+  width: min(540px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  padding: var(--espacio-l);
+}
+
+.modal-cabecera h2 {
+  font-size: var(--tamano-xl);
+  margin-bottom: 0;
+}
+
+.modal-cuerpo {
+  font-size: var(--tamano-m);
+  line-height: var(--interlineado-base);
+  color: var(--color-texto);
+}
+
+.modal-pie {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espacio-s);
+  padding-top: var(--espacio-s);
+  border-top: 1px solid var(--color-borde);
+}
+
+/* --- 7. Avisos emergentes (.toast y .aviso) --- */
+.contenedor-avisos {
+  position: fixed;
+  bottom: var(--espacio-l);
+  right: var(--espacio-l);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  max-width: min(380px, calc(100vw - 2rem));
+}
+
+.toast,
+.aviso {
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio-m);
+  box-shadow: var(--sombra-2);
+  font-size: var(--tamano-s);
+  line-height: var(--interlineado-base);
+  border-left: var(--radio-s) solid var(--color-acento);
+}
+
+.aviso-exito {
+  border-left-color: var(--color-exito);
+}
+
+.aviso-error {
+  border-left-color: var(--color-error);
+}
+
+.aviso-info {
+  border-left-color: var(--color-info);
+}
+
+/* --- 8. Insignias (.insignia) --- */
+.insignia {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-completo);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-negrita);
+  line-height: 1;
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  white-space: nowrap;
+}
+
+.insignia--acento {
+  background-color: var(--color-acento);
+  color: var(--color-primario);
+}
+
+.insignia--suave {
+  background-color: var(--color-fondo);
+  color: var(--color-primario);
+  border: 1px solid var(--color-borde);
+}
+
+/* --- 9. Barra de progreso (.progreso) --- */
+.progreso {
+  width: 100%;
+  height: var(--espacio-s);
+  background-color: var(--color-borde);
+  border-radius: var(--radio-completo);
+  overflow: hidden;
+}
+
+.progreso > span {
+  display: block;
+  height: 100%;
+  background-color: var(--color-acento);
+  border-radius: var(--radio-completo);
+  transition: width var(--transicion);
+}
+
+/* --- 10. Chips interactivos (.chip) --- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-xs) var(--espacio-s);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+}
+
+/* --- 11. Encabezado principal (.encabezado) --- */
+.encabezado {
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  border-bottom: 4px solid var(--color-acento);
+  box-shadow: var(--sombra-1);
+  padding-block: var(--espacio-m);
+}
+
+.encabezado a {
+  color: var(--color-texto-inverso);
+}
+
+.encabezado a:hover {
+  text-decoration: none;
+  color: #FFA366; /* PROVISIONAL: iluminado en hover */
+}
+
+/* --- 12. Menú de navegación lateral y móvil (.menu) --- */
+.menu {
+  background-color: var(--color-primario-oscuro);
+  color: var(--color-texto-inverso);
+  border-radius: var(--radio-m);
+  padding: var(--espacio-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio-m);
+  color: #BCD0DC; /* PROVISIONAL: tono claro de menú UNEMI */
+  font-size: var(--tamano-s);
+  font-weight: var(--peso-medio);
+  text-decoration: none;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.menu a:hover,
+.menu a.activo {
+  background-color: var(--color-secundario);
+  color: var(--color-texto-inverso);
+}
+
+.menu a.activo {
+  border-left: 3px solid var(--color-acento);
+  padding-left: calc(var(--espacio-m) - 3px);
+}
+
+@media (max-width: 768px) {
+  .menu.menu--plegable {
+    display: none;
+  }
+  .menu.menu--plegable.menu--abierto {
+    display: flex;
+  }
+}
+
+/* --- 13. Pie de página (.pie) --- */
+.pie {
+  background-color: var(--color-primario-oscuro);
+  color: var(--color-texto-inverso);
+  border-top: 1px solid var(--color-secundario);
+  padding-block: var(--espacio-2xl);
+  margin-top: auto;
+  font-size: var(--tamano-s);
+}
+
+.pie a {
+  color: #BCD0DC; /* PROVISIONAL */
+}
+
+/* --- 14. Indicador de carga (.cargando) --- */
+.cargando {
+  width: var(--tamano-xl);
+  height: var(--tamano-xl);
+  border: 3px solid var(--color-borde);
+  border-top-color: var(--color-acento);
+  border-radius: var(--radio-completo);
+  animation: animacionGirar 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes animacionGirar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- 15. Estado vacío (.vacio) --- */
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-m);
+  padding: var(--espacio-2xl) var(--espacio-m);
+  background-color: var(--color-superficie);
+  border: 2px dashed var(--color-borde);
+  border-radius: var(--radio-l);
+  text-align: center;
+  color: var(--color-texto-suave);
+}
+
+.vacio h3 {
+  color: var(--color-primario);
+  margin-bottom: 0;
+}

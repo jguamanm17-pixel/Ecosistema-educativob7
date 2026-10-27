@@ -1,0 +1,100 @@
+/* publico/css/modulos/distributivo.css · Estilos para gestión del distributivo */
+
+.distributivo-contenedor {
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-xl);
+}
+
+.distributivo-encabezado {
+  margin-bottom: var(--espacio-l);
+}
+
+.distributivo-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  color: var(--color-primario);
+}
+
+.distributivo-subtitulo {
+  color: var(--color-texto-suave);
+  font-size: var(--tamano-base);
+}
+
+.distributivo-tarjeta-tabla {
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-superficie);
+  box-shadow: var(--sombra-1);
+}
+
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Selector interactivo de estudiantes en el modal */
+.estudiantes-seleccion-caja {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  margin-top: var(--espacio-xs);
+}
+
+.estudiantes-lista-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-s);
+  background-color: var(--color-fondo);
+  padding: var(--espacio-xs);
+}
+
+.estudiante-fila-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-s);
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.estudiante-fila-item:hover {
+  background-color: var(--color-superficie);
+}
+
+.estudiante-fila-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primario);
+  cursor: pointer;
+}
+
+.estudiante-info-label {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.estudiante-nombre {
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-seminegrita);
+  color: var(--color-texto);
+}
+
+.estudiante-correo {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+}
+
+.estudiantes-barra-contador {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+  padding: 0 var(--espacio-xs);
+}

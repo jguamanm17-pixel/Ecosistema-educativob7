@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor de noticia · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/editor-noticia.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <header class="editor-cabecera">
+      <a href="/paginas/noticias.html" class="enlace-volver">← Volver a Noticias</a>
+      <div class="fila" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--espacio-m); margin-top: var(--espacio-xs);">
+        <h1 id="editor-titulo" style="margin-bottom: 0;">Crear noticia</h1>
+        <div class="fila" style="gap: var(--espacio-s);">
+          <button type="button" id="btn-toggle-previa" class="btn btn--secundario btn--pequeno" aria-pressed="false">
+            👁 Vista previa
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="editor-cuadricula">
+      <!-- Formulario principal -->
+      <section class="tarjeta editor-formulario-bloque" aria-label="Formulario de edición de noticia">
+        <form id="formulario-noticia" class="pila" style="gap: var(--espacio-m);" novalidate>
+          <div class="campo-grupo">
+            <label for="campo-titulo" class="campo-etiqueta">Título de la noticia <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+            <input type="text" id="campo-titulo" class="campo" required maxlength="150" placeholder="Ej: Nuevas medidas de seguridad y prevención en obras civiles">
+          </div>
+
+          <div class="fila-dos-columnas">
+            <div class="campo-grupo">
+              <label for="campo-categoria" class="campo-etiqueta">Categoría <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+              <select id="campo-categoria" class="campo" required>
+                <option value="Institucional">Institucional</option>
+                <option value="Académica">Académica</option>
+                <option value="Eventos">Eventos</option>
+                <option value="Logros">Logros</option>
+              </select>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="campo-tema" class="campo-etiqueta">Tema relacionado (opcional)</label>
+              <select id="campo-tema" class="campo">
+                <option value="">-- Noticia general (sin tema específico) --</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <div class="fila" style="justify-content: space-between; align-items: baseline;">
+              <label for="campo-resumen" class="campo-etiqueta">Resumen breve <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+              <span id="contador-resumen" class="contador-caracteres">0 / 200 caracteres</span>
+            </div>
+            <textarea id="campo-resumen" class="campo" rows="2" maxlength="200" placeholder="Breve síntesis para la portada y tarjetas de noticias (máx. 200 caracteres)..." required></textarea>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-etiqueta">Imagen de portada (opcional)</label>
+            <div class="subida-imagen-contenedor">
+              <div id="vista-miniatura" class="miniatura-caja" aria-label="Vista previa de imagen">
+                <span class="miniatura-placeholder">Sin imagen seleccionada</span>
+              </div>
+              <div class="pila" style="gap: var(--espacio-xs); flex: 1;">
+                <input type="hidden" id="campo-imagen">
+                <input type="file" id="input-archivo-imagen" accept="image/jpeg,image/png,image/webp" style="display: none;">
+                <div class="fila" style="gap: var(--espacio-s);">
+                  <button type="button" id="btn-subir-imagen" class="btn btn--secundario btn--pequeno">
+                    📁 Subir imagen
+                  </button>
+                  <button type="button" id="btn-quitar-imagen" class="btn btn--fantasma btn--pequeno" style="display: none; color: var(--color-error);">
+                    Quitar
+                  </button>
+                </div>
+                <small style="color: var(--color-texto-suave); font-size: var(--tamano-xs);">Formatos: JPG, PNG, WEBP (hasta 2 MB).</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="campo-cuerpo" class="campo-etiqueta">Cuerpo completo de la noticia <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+            <textarea id="campo-cuerpo" class="campo" rows="10" placeholder="Escribe aquí el contenido detallado de la noticia..." required></textarea>
+            <small style="color: var(--color-texto-suave); font-size: var(--tamano-xs); margin-top: 2px;">
+              Formato admitido: *negrita*, _cursiva_, listas con guiones y enlaces [texto](url).
+            </small>
+          </div>
+
+          <div class="fila-dos-columnas" style="align-items: center; padding-top: var(--espacio-s); border-top: 1px solid var(--color-borde);">
+            <div class="campo-grupo">
+              <label class="fila" style="gap: var(--espacio-s); cursor: pointer; align-items: center;">
+                <input type="checkbox" id="campo-destacada" style="width: 18px; height: 18px;">
+                <span style="font-size: var(--tamano-s); font-weight: var(--peso-medio);">Marcar como destacada (aparecerá primero)</span>
+              </label>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="campo-estado" class="campo-etiqueta">Estado de la noticia</label>
+              <select id="campo-estado" class="campo">
+                <option value="borrador">Borrador (solo visible para docentes y admin)</option>
+                <option value="publicado">Publicado (visible para todos los estudiantes)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fila" style="gap: var(--espacio-m); justify-content: flex-end; margin-top: var(--espacio-m);">
+            <a href="/paginas/noticias.html" class="btn btn--secundario">Cancelar</a>
+            <button type="submit" id="btn-guardar" class="btn btn--primario">
+              Guardar noticia
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Panel de Vista Previa -->
+      <aside id="panel-vista-previa" class="tarjeta editor-previa-bloque" aria-label="Vista previa en vivo">
+        <h2 style="font-size: var(--tamano-l); margin-bottom: var(--espacio-m); color: var(--color-primario);">
+          Vista previa
+        </h2>
+        <div class="previa-tarjeta-simulada">
+          <div id="previa-portada" class="previa-portada">
+            <span id="previa-categoria" class="insignia insignia--secundario">Institucional</span>
+            <span id="previa-destacada-badge" class="insignia insignia--acento" style="display: none;">★ Destacada</span>
+          </div>
+          <div class="pila" style="gap: var(--espacio-xs); padding: var(--espacio-m);">
+            <h3 id="previa-titulo" style="font-size: var(--tamano-m); color: var(--color-primario); margin-bottom: 0;">Título de ejemplo</h3>
+            <p id="previa-resumen" style="font-size: var(--tamano-s); color: var(--color-texto-suave);">El resumen de la noticia aparecerá aquí.</p>
+            <div id="previa-tema-badge" style="display: none; margin-top: var(--espacio-xs);">
+              <span class="insignia" style="background-color: var(--color-info-fondo); color: var(--color-info); font-size: var(--tamano-xs);"></span>
+            </div>
+            <div class="previa-separador"></div>
+            <div id="previa-cuerpo" class="previa-cuerpo-contenido" style="font-size: var(--tamano-s);">
+              <em>El contenido formateado se mostrará aquí conforme escribas.</em>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/editor-noticia.js"></script>
+</body>
+</html>

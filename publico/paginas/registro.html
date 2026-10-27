@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/registro.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <div class="tarjeta tarjeta-auth">
+      <h1>Crear cuenta</h1>
+      <p>Regístrate para acceder al entorno de aprendizaje y evaluaciones.</p>
+
+      <form id="formulario-registro" class="pila" novalidate>
+        <div class="grid-auto" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="campo">
+            <label for="campo-nombre">Nombre</label>
+            <input id="campo-nombre" name="nombre" type="text" placeholder="Ej: Ana" required autocomplete="given-name">
+            <span class="campo__error" id="error-nombre" role="alert"></span>
+          </div>
+
+          <div class="campo">
+            <label for="campo-apellido">Apellido</label>
+            <input id="campo-apellido" name="apellido" type="text" placeholder="Ej: Martínez" required autocomplete="family-name">
+            <span class="campo__error" id="error-apellido" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="campo-correo">Correo institucional</label>
+          <input id="campo-correo" name="correo" type="email" placeholder="ejemplo@unemi.edu.ec" required autocomplete="email">
+          <span class="campo__error" id="error-correo" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label for="campo-clave">Contraseña</label>
+          <input id="campo-clave" name="clave" type="password" placeholder="Al menos 8 caracteres con letras y números" required autocomplete="new-password">
+          <span class="campo__error" id="error-clave" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label class="campo__checkbox">
+            <input id="campo-consentimiento" name="consentimiento" type="checkbox" required>
+            <span>Acepto el <a href="/paginas/privacidad.html" target="_blank">aviso de privacidad</a> y el tratamiento de mis datos personales.</span>
+          </label>
+          <span class="campo__error" id="error-consentimiento" role="alert"></span>
+        </div>
+
+        <div>
+          <button type="submit" id="btn-submit" class="btn btn--primario" style="width: 100%;">Crear cuenta e ingresar</button>
+        </div>
+      </form>
+
+      <div style="margin-top: var(--espacio-l); text-align: center; font-size: var(--tamano-s);">
+        <span>¿Ya tienes una cuenta?</span>
+        <a href="/paginas/ingreso.html" style="font-weight: var(--peso-seminegrita); margin-left: var(--espacio-xs);">Inicia sesión aquí</a>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/registro.js"></script>
+</body>
+</html>

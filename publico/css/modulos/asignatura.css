@@ -1,0 +1,636 @@
+/* publico/css/modulos/asignatura.css · Estilos para la vista de unidades y temas de una asignatura */
+
+.materia-contenedor {
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-2xl);
+}
+
+.materia-encabezado {
+  margin-bottom: var(--espacio-xl);
+  padding-bottom: var(--espacio-m);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.materia-volver {
+  font-size: var(--tamano-sm);
+  color: var(--color-primario);
+  font-weight: var(--peso-seminegrita);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: var(--espacio-xs);
+}
+
+.materia-volver:hover {
+  text-decoration: underline;
+}
+
+.materia-nivel {
+  font-size: var(--tamano-xs);
+  color: var(--color-acento);
+  font-weight: var(--peso-seminegrita);
+  text-transform: uppercase;
+}
+
+.materia-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  color: var(--color-primario);
+  line-height: var(--interlineado-apretado);
+}
+
+.materia-descripcion {
+  font-size: var(--tamano-sm);
+  color: var(--color-texto);
+  max-width: 650px;
+}
+
+.materia-avance-box {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-m);
+  padding: var(--espacio-s) var(--espacio-m);
+  min-width: 200px;
+}
+
+/* Unidades */
+.unidades-academico-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xl);
+}
+
+.unidad-bloque {
+  background-color: var(--color-superficie);
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+}
+
+.unidad-bloque__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--espacio-m);
+  padding-bottom: var(--espacio-s);
+  border-bottom: 2px solid var(--color-borde);
+}
+
+.unidad-bloque__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-xl);
+  color: var(--color-primario);
+}
+
+/* Temas dentro de la unidad */
+.unidad-bloque__temas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.tema-academico-fila {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  padding: var(--espacio-m);
+  border-radius: var(--radio-s);
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-fondo);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+@media (min-width: 640px) {
+  .tema-academico-fila {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.tema-academico-fila:hover {
+  transform: translateX(4px);
+  border-color: var(--color-acento);
+}
+
+.tema-academico-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  flex: 1;
+}
+
+.tema-academico-orden {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-negrita);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tema-academico-titulo {
+  font-size: var(--tamano-base);
+  font-weight: var(--peso-seminegrita);
+  color: var(--color-texto);
+}
+
+.tema-academico-acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-m);
+}
+
+/* ==========================================================================
+   TUTOR SOCRÁTICO VIRTUAL (BANNER Y WIDGET DE CHAT)
+   ========================================================================== */
+
+/* Banner destacado en la cabecera */
+.tutor-banner-card {
+  margin-bottom: var(--espacio-xl);
+  background: linear-gradient(135deg, var(--color-superficie) 0%, var(--color-fondo) 100%);
+  border: 2px solid var(--color-primario);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  align-items: flex-start;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+@media (min-width: 768px) {
+  .tutor-banner-card {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.tutor-banner-card:hover {
+  box-shadow: var(--sombra-3);
+  border-color: var(--color-acento);
+}
+
+.tutor-banner-info {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacio-m);
+  max-width: 750px;
+}
+
+.tutor-banner-icono-wrapper {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: var(--sombra-1);
+}
+
+.tutor-banner-pulso {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radio-completo);
+  border: 2px solid var(--color-acento);
+  animation: pulsoAura 2.2s infinite ease-out;
+}
+
+@keyframes pulsoAura {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.tutor-banner-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-lg);
+  color: var(--color-primario);
+  margin: 0;
+  line-height: var(--interlineado-apretado);
+}
+
+.tutor-banner-subtexto {
+  font-size: var(--tamano-sm);
+  color: var(--color-texto);
+  margin: 0;
+}
+
+.tutor-banner-acciones {
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+  .tutor-banner-acciones {
+    align-self: center;
+  }
+}
+
+/* Botón flotante accesible */
+.tutor-boton-flotante {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  padding: 12px 20px;
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  border: 2px solid var(--color-acento);
+  border-radius: var(--radio-completo);
+  font-family: var(--fuente-cuerpo);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-negrita);
+  box-shadow: var(--sombra-3);
+  cursor: pointer;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.tutor-boton-flotante:hover,
+.tutor-boton-flotante:focus-visible {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.tutor-flotante-icono {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.tutor-indicador-online {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-exito);
+  display: inline-block;
+  box-shadow: 0 0 0 2px var(--color-superficie);
+}
+
+/* Ventana de Chat Widget */
+.tutor-chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 440px;
+  max-width: calc(100vw - 32px);
+  height: 620px;
+  max-height: calc(100vh - 48px);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-l);
+  box-shadow: var(--sombra-3);
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: tutorAparecer 0.25s ease-out;
+}
+
+@keyframes tutorAparecer {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .tutor-chat-widget {
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+    z-index: 100;
+  }
+}
+
+/* Cabecera del chat */
+.tutor-chat-header {
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  padding: var(--espacio-s) var(--espacio-m);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-acento);
+}
+
+.tutor-chat-perfil {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+}
+
+.tutor-chat-avatar {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-superficie);
+  color: var(--color-primario);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.tutor-chat-avatar-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-exito);
+  border: 2px solid var(--color-primario);
+}
+
+.tutor-chat-nombre {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-base);
+  margin: 0;
+  line-height: var(--interlineado-apretado);
+  color: var(--color-texto-inverso);
+}
+
+.tutor-chat-asg {
+  font-size: 11px;
+  color: var(--color-acento);
+  margin: 0;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tutor-chat-controles {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2xs);
+}
+
+.btn-icono-pequeno {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-texto-inverso);
+  border-radius: var(--radio-s);
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: var(--tamano-sm);
+  transition: background var(--transicion);
+}
+
+.btn-icono-pequeno:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Barra de foco temático */
+.tutor-chat-foco {
+  background-color: var(--color-fondo);
+  padding: var(--espacio-2xs) var(--espacio-m);
+  border-bottom: 1px solid var(--color-borde);
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  font-size: var(--tamano-xs);
+}
+
+.tutor-foco-label {
+  color: var(--color-texto-suave);
+  white-space: nowrap;
+  font-weight: var(--peso-seminegrita);
+}
+
+.tutor-foco-select {
+  padding: 4px 8px;
+  font-size: var(--tamano-xs);
+  flex: 1;
+  background-color: var(--color-superficie);
+}
+
+/* Área de mensajes con scroll */
+.tutor-chat-mensajes {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--espacio-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  background-color: var(--color-fondo);
+  scroll-behavior: smooth;
+}
+
+/* Mensajes individuales */
+.tutor-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+  animation: mensajeSlide 0.2s ease-out;
+}
+
+@keyframes mensajeSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tutor-msg--tutor {
+  align-self: flex-start;
+}
+
+.tutor-msg--estudiante {
+  align-self: flex-end;
+}
+
+.tutor-msg-burbuja {
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio-m);
+  font-size: var(--tamano-sm);
+  line-height: var(--interlineado-normal);
+  word-break: break-word;
+}
+
+.tutor-msg--tutor .tutor-msg-burbuja {
+  background-color: var(--color-superficie);
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+  border-bottom-left-radius: 3px;
+  box-shadow: var(--sombra-1);
+}
+
+.tutor-msg--estudiante .tutor-msg-burbuja {
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  border-bottom-right-radius: 3px;
+}
+
+.tutor-msg-meta {
+  font-size: 10px;
+  margin-top: 3px;
+  color: var(--color-texto-suave);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tutor-msg--estudiante .tutor-msg-meta {
+  align-self: flex-end;
+}
+
+/* Indicador de pensamiento con puntos pulsantes */
+.tutor-pensando-box {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-xs) var(--espacio-m);
+  background-color: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tutor-pensando-puntos {
+  display: flex;
+  gap: 4px;
+}
+
+.tutor-pensando-puntos span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radio-completo);
+  background-color: var(--color-primario);
+  animation: puntoRebote 1.2s infinite ease-in-out;
+}
+
+.tutor-pensando-puntos span:nth-child(2) { animation-delay: 0.2s; }
+.tutor-pensando-puntos span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes puntoRebote {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-5px); opacity: 1; }
+}
+
+.tutor-pensando-texto {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+  font-style: italic;
+}
+
+/* Sugerencias de preguntas guía */
+.tutor-sugerencias-fila {
+  display: flex;
+  gap: var(--espacio-2xs);
+  padding: var(--espacio-xs) var(--espacio-m);
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+  scrollbar-width: thin;
+}
+
+.tutor-chip-sugerencia {
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-completo);
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--color-primario);
+  font-weight: var(--peso-seminegrita);
+  cursor: pointer;
+  transition: all var(--transicion);
+  flex-shrink: 0;
+}
+
+.tutor-chip-sugerencia:hover {
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
+  border-color: var(--color-primario);
+}
+
+/* Formulario de entrada */
+.tutor-chat-form {
+  padding: var(--espacio-s) var(--espacio-m);
+  background-color: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2xs);
+}
+
+.tutor-input-wrapper {
+  display: flex;
+  gap: var(--espacio-xs);
+  align-items: flex-end;
+}
+
+.tutor-textarea {
+  flex: 1;
+  resize: none;
+  min-height: 42px;
+  max-height: 100px;
+  font-family: var(--fuente-cuerpo);
+  font-size: var(--tamano-sm);
+  padding: 10px 12px;
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+}
+
+.tutor-textarea:focus {
+  border-color: var(--color-primario);
+  outline: none;
+}
+
+.tutor-btn-enviar {
+  min-width: 44px;
+  height: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radio-m);
+  font-size: var(--tamano-base);
+}
+
+.tutor-meta-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--color-texto-suave);
+}
+
+.tutor-btn-pista {
+  background: none;
+  border: none;
+  color: var(--color-acento);
+  font-weight: var(--peso-seminegrita);
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.tutor-btn-pista:hover {
+  color: var(--color-primario);
+}
+

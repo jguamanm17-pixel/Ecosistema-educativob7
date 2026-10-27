@@ -1,0 +1,17 @@
+/* publico/css/modulos/privacidad.css · Estilos para la política de privacidad */
+.aviso-legal {
+  max-width: 800px;
+}
+
+.aviso-legal h2 {
+  margin-top: var(--espacio-l);
+}
+
+.aviso-legal ul {
+  padding-left: var(--espacio-l);
+  margin-bottom: var(--espacio-m);
+}
+
+.aviso-legal li {
+  margin-bottom: var(--espacio-xs);
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingreso</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/ingreso.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <div class="tarjeta tarjeta-auth">
+      <h1>Iniciar sesión</h1>
+      <p>Ingresa tus credenciales para acceder al Ecosistema Educativo.</p>
+
+      <form id="formulario-ingreso" class="pila" novalidate>
+        <div class="campo">
+          <label for="campo-correo">Correo electrónico</label>
+          <input id="campo-correo" name="correo" type="email" placeholder="ejemplo@unemi.edu.ec" required autocomplete="email">
+          <span class="campo__error" id="error-correo" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label for="campo-clave">Contraseña</label>
+          <input id="campo-clave" name="clave" type="password" placeholder="Tu contraseña" required autocomplete="current-password">
+          <span class="campo__error" id="error-clave" role="alert"></span>
+        </div>
+
+        <div>
+          <button type="submit" id="btn-submit" class="btn btn--primario" style="width: 100%;">Ingresar</button>
+        </div>
+      </form>
+
+      <div style="margin-top: var(--espacio-l); text-align: center; font-size: var(--tamano-s);">
+        <span>¿No tienes una cuenta?</span>
+        <a href="/paginas/registro.html" style="font-weight: var(--peso-seminegrita); margin-left: var(--espacio-xs);">Regístrate aquí</a>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/ingreso.js"></script>
+</body>
+</html>

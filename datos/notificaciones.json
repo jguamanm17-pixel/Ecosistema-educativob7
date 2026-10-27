@@ -1,0 +1,11 @@
+[
+  {
+    "usuarioId": "usu_000002",
+    "tipo": "alerta",
+    "mensaje": "Banco de preguntas insuficiente en \"Equipos de Protección Individual y Colectiva (Actualizado)\" (Nivel 1). Un estudiante ha reutilizado preguntas previas.",
+    "enlace": "/paginas/banco-preguntas.html?temaId=tem_000001",
+    "leida": false,
+    "id": "not_000001",
+    "fecha": "2026-10-26T19:59:49.102Z"
+  }
+]

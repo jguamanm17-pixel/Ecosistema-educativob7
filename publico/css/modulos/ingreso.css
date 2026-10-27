@@ -1,0 +1,6 @@
+/* publico/css/modulos/ingreso.css · Estilos para la vista de inicio de sesión */
+.tarjeta-auth {
+  max-width: 440px;
+  margin: var(--espacio-2xl) auto;
+  padding: var(--espacio-xl);
+}

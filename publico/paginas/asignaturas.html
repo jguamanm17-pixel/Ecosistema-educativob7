@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis asignaturas · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/asignaturas.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor asignaturas-contenedor">
+    <header class="asignaturas-encabezado">
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1 class="asignaturas-titulo">Mis Asignaturas</h1>
+        <p class="asignaturas-subtitulo">Accede al contenido académico de tus materias matriculadas y monitorea tu progreso.</p>
+      </div>
+    </header>
+
+    <!-- Cuadrícula de asignaturas -->
+    <section class="asignaturas-grid" id="cuadricula-mis-asignaturas" aria-label="Listado de mis asignaturas">
+      <div class="tarjeta" style="grid-column: 1 / -1; text-align: center; padding: var(--espacio-xl); color: var(--color-texto-suave);">
+        Cargando tus asignaturas...
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/js/modulos/asignaturas.js"></script>
+</body>
+</html>

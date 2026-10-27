@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración de usuarios · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/admin-usuarios.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor admin-contenedor">
+    <header class="admin-encabezado">
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1 class="admin-titulo">Administración de usuarios</h1>
+        <p class="admin-subtitulo">Gestión de roles, estado de activación y restablecimiento de credenciales.</p>
+      </div>
+
+      <!-- Barra de filtros -->
+      <div class="admin-filtros fila" style="gap: var(--espacio-m); flex-wrap: wrap;">
+        <div class="campo admin-filtro-buscar" style="flex: 1; min-width: 240px;">
+          <label for="buscar-usuario" class="sr-only">Buscar por nombre, apellido o correo</label>
+          <input type="search" id="buscar-usuario" placeholder="Buscar por nombre, apellido o correo..." aria-label="Buscar usuarios">
+        </div>
+
+        <div class="campo admin-filtro-rol" style="min-width: 180px;">
+          <label for="filtro-rol" class="sr-only">Filtrar por rol</label>
+          <select id="filtro-rol" aria-label="Filtrar por rol">
+            <option value="todos">Todos los roles</option>
+            <option value="estudiante">Estudiantes</option>
+            <option value="docente">Docentes</option>
+            <option value="admin">Administradores</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tabla de usuarios -->
+    <section class="tarjeta admin-tarjeta-tabla" aria-labelledby="titulo-lista-usuarios">
+      <h2 id="titulo-lista-usuarios" class="sr-only">Listado de usuarios</h2>
+      <div class="tabla-contenedor">
+        <table class="tabla" id="tabla-usuarios">
+          <thead>
+            <tr>
+              <th scope="col">Usuario</th>
+              <th scope="col">Correo</th>
+              <th scope="col" style="min-width: 140px;">Rol</th>
+              <th scope="col" style="text-align: center; width: 90px;">Activo</th>
+              <th scope="col" style="text-align: right; min-width: 170px;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-usuarios">
+            <tr>
+              <td colspan="5" style="text-align: center; padding: var(--espacio-l); color: var(--color-texto-suave);">
+                Cargando usuarios...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/js/modulos/admin-usuarios.js"></script>
+</body>
+</html>

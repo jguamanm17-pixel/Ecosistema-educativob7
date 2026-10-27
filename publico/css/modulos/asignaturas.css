@@ -1,0 +1,111 @@
+/* publico/css/modulos/asignaturas.css · Estilos para las tarjetas de asignaturas con barra de avance */
+
+.asignaturas-contenedor {
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-xl);
+}
+
+.asignaturas-encabezado {
+  margin-bottom: var(--espacio-l);
+}
+
+.asignaturas-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  color: var(--color-primario);
+}
+
+.asignaturas-subtitulo {
+  color: var(--color-texto-suave);
+  font-size: var(--tamano-base);
+}
+
+.asignaturas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-l);
+}
+
+@media (min-width: 680px) {
+  .asignaturas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+.materia-tarjeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-superficie);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.materia-tarjeta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-2);
+}
+
+.materia-tarjeta__cabecera {
+  margin-bottom: var(--espacio-s);
+}
+
+.materia-tarjeta__nivel {
+  font-size: var(--tamano-xs);
+  color: var(--color-acento);
+  font-weight: var(--peso-seminegrita);
+  text-transform: uppercase;
+}
+
+.materia-tarjeta__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-lg);
+  color: var(--color-primario);
+  margin-top: var(--espacio-xs);
+  line-height: var(--interlineado-apretado);
+}
+
+.materia-tarjeta__cuerpo {
+  flex: 1;
+  margin-bottom: var(--espacio-m);
+}
+
+.materia-tarjeta__descripcion {
+  font-size: var(--tamano-sm);
+  color: var(--color-texto);
+  line-height: var(--interlineado-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: var(--espacio-m);
+}
+
+/* Sección de progreso de aprendizaje */
+.materia-tarjeta__avance {
+  margin-top: auto;
+  padding-top: var(--espacio-s);
+  border-top: 1px dashed var(--color-borde);
+}
+
+.materia-tarjeta__avance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--tamano-xs);
+  margin-bottom: var(--espacio-xs);
+}
+
+.materia-tarjeta__avance-porcentaje {
+  font-weight: var(--peso-negrita);
+  color: var(--color-primario);
+}
+
+.materia-tarjeta__pie {
+  margin-top: var(--espacio-m);
+  display: flex;
+  justify-content: flex-end;
+}

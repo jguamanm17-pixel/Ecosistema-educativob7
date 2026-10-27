@@ -1,0 +1,223 @@
+/* publico/css/modulos/tema.css · Estilos para la vista de estudio del tema */
+
+.tema-estudio-contenedor {
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-2xl);
+}
+
+/* Migas de pan */
+.tema-nav-migas {
+  margin-bottom: var(--espacio-m);
+}
+
+.tema-migas-ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-xs);
+  list-style: none;
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+}
+
+.tema-migas-ol li + li::before {
+  content: "›";
+  margin-right: var(--espacio-xs);
+  color: var(--color-borde);
+  font-size: var(--tamano-sm);
+}
+
+.tema-migas-ol a {
+  color: var(--color-primario);
+  text-decoration: none;
+}
+
+.tema-migas-ol a:hover {
+  text-decoration: underline;
+}
+
+/* Encabezado */
+.tema-encabezado {
+  padding-bottom: var(--espacio-m);
+  border-bottom: 2px solid var(--color-borde);
+}
+
+.tema-unidad-badge {
+  font-size: var(--tamano-xs);
+  color: var(--color-acento);
+  font-weight: var(--peso-seminegrita);
+  text-transform: uppercase;
+}
+
+.tema-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  color: var(--color-primario);
+  line-height: var(--interlineado-apretado);
+}
+
+/* Secciones de contenido */
+.tema-card-seccion {
+  background-color: var(--color-superficie);
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+}
+
+.tema-seccion-h2 {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-xl);
+  color: var(--color-primario);
+  margin-bottom: var(--espacio-m);
+  padding-bottom: var(--espacio-xs);
+  border-bottom: 1.5px solid var(--color-borde);
+}
+
+/* Lista de objetivos */
+.tema-lista-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  padding-left: var(--espacio-m);
+}
+
+.tema-lista-bullets li {
+  list-style-type: disc;
+  color: var(--color-texto);
+  font-size: var(--tamano-base);
+  line-height: var(--interlineado-normal);
+}
+
+/* Resumen con formato básico */
+.tema-resumen-texto {
+  font-size: var(--tamano-base);
+  line-height: var(--interlineado-relajado);
+  color: var(--color-texto);
+}
+
+.tema-resumen-texto p {
+  margin-bottom: var(--espacio-m);
+}
+
+.tema-resumen-texto ul {
+  padding-left: var(--espacio-l);
+  margin-bottom: var(--espacio-m);
+}
+
+.tema-resumen-texto li {
+  list-style-type: disc;
+  margin-bottom: var(--espacio-xs);
+}
+
+/* Lista de ejemplos */
+.tema-lista-ejemplos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.tema-ejemplo-item {
+  padding: var(--espacio-m);
+  background-color: var(--color-fondo);
+  border-left: 4px solid var(--color-acento);
+  border-radius: var(--radio-s);
+  font-size: var(--tamano-base);
+  line-height: var(--interlineado-normal);
+}
+
+/* Recursos multimedia */
+.tema-recursos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-m);
+}
+
+@media (min-width: 640px) {
+  .tema-recursos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.recurso-video-box {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  border-radius: var(--radio-m);
+  overflow: hidden;
+  box-shadow: var(--sombra-2);
+}
+
+.recurso-video-box iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.recurso-imagen-box {
+  margin: 0;
+  border-radius: var(--radio-m);
+  overflow: hidden;
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-fondo);
+}
+
+.recurso-imagen-box img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.recurso-imagen-box figcaption {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+  padding: var(--espacio-xs) var(--espacio-s);
+  text-align: center;
+  background-color: var(--color-superficie);
+}
+
+.recurso-archivo-box {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  padding: var(--espacio-m);
+  border-radius: var(--radio-m);
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+}
+
+/* Bloque Práctica */
+.tema-card-practica {
+  border-color: var(--color-acento);
+  background: linear-gradient(180deg, var(--color-superficie) 0%, rgba(255, 122, 0, 0.04) 100%);
+}
+
+.tema-actividades-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-m);
+}
+
+@media (min-width: 640px) {
+  .tema-actividades-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.actividad-card {
+  padding: var(--espacio-m);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-m);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+  box-shadow: var(--sombra-1);
+}

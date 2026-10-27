@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tema · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/tema.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor tema-estudio-contenedor">
+    <!-- Migas de pan -->
+    <nav aria-label="Migas de pan" class="tema-nav-migas">
+      <ol id="miga-pan-lista" class="tema-migas-ol">
+        <li><a href="/paginas/asignaturas.html">Mis asignaturas</a></li>
+        <li aria-current="page" id="miga-tema-actual">Cargando...</li>
+      </ol>
+    </nav>
+
+    <!-- Encabezado del Tema -->
+    <header class="tema-encabezado fila" style="justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--espacio-m);">
+      <div class="pila" style="gap: var(--espacio-xs); flex: 1; min-width: 280px;">
+        <span id="tema-unidad-etiqueta" class="tema-unidad-badge">Unidad temática</span>
+        <h1 id="tema-titulo" class="tema-titulo">Cargando tema...</h1>
+      </div>
+
+      <div class="fila" style="align-items: center; gap: var(--espacio-s);">
+        <button type="button" id="btn-marcar-revisado" class="btn btn--primario">
+          Marcar como revisado
+        </button>
+      </div>
+    </header>
+
+    <div class="pila" style="gap: var(--espacio-xl); margin-top: var(--espacio-l);">
+      <!-- Objetivos de Aprendizaje -->
+      <section class="tarjeta tema-card-seccion" id="seccion-objetivos" aria-labelledby="titulo-objetivos">
+        <h2 id="titulo-objetivos" class="tema-seccion-h2">🎯 Objetivos de Aprendizaje</h2>
+        <ul id="lista-objetivos" class="tema-lista-bullets"></ul>
+      </section>
+
+      <!-- Resumen Teórico -->
+      <section class="tarjeta tema-card-seccion" aria-labelledby="titulo-resumen">
+        <h2 id="titulo-resumen" class="tema-seccion-h2">📖 Resumen del Tema</h2>
+        <div id="cuerpo-resumen" class="tema-resumen-texto"></div>
+      </section>
+
+      <!-- Ejemplos Prácticos -->
+      <section class="tarjeta tema-card-seccion" id="seccion-ejemplos" aria-labelledby="titulo-ejemplos">
+        <h2 id="titulo-ejemplos" class="tema-seccion-h2">💡 Ejemplos de Aplicación en Obra</h2>
+        <ul id="lista-ejemplos" class="tema-lista-ejemplos"></ul>
+      </section>
+
+      <!-- Recursos Didácticos -->
+      <section class="tarjeta tema-card-seccion" id="seccion-recursos" aria-labelledby="titulo-recursos">
+        <h2 id="titulo-recursos" class="tema-seccion-h2">📚 Recursos Didácticos y Multimedia</h2>
+        <div id="lista-recursos" class="tema-recursos-grid"></div>
+      </section>
+
+      <!-- Bloque "Practica este tema" -->
+      <section class="tarjeta tema-card-seccion tema-card-practica" aria-labelledby="titulo-practica">
+        <h2 id="titulo-practica" class="tema-seccion-h2" style="color: var(--color-primario);">🎮 Practica este tema</h2>
+        <div id="contenedor-actividades" class="tema-actividades-grid">
+          <!-- Renderizado de ACTIVIDADES o mensaje vacío -->
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/tema.js"></script>
+</body>
+</html>

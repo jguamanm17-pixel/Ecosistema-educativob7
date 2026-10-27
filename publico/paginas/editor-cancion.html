@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor de canción · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/editor-cancion.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <header class="editor-cabecera">
+      <a href="/paginas/canciones.html" class="enlace-volver">← Volver a Canciones</a>
+      <h1 id="editor-titulo" style="margin-top: var(--espacio-xs); margin-bottom: 0;">Agregar nueva canción educativa</h1>
+    </header>
+
+    <section class="tarjeta editor-formulario-bloque" aria-label="Formulario de canción educativa">
+      <form id="formulario-cancion" class="pila" style="gap: var(--espacio-m);" novalidate>
+        <!-- Título y Tema -->
+        <div class="fila-dos-columnas">
+          <div class="campo-grupo">
+            <label for="campo-titulo" class="campo-etiqueta">Título de la canción <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+            <input type="text" id="campo-titulo" class="campo" required placeholder="Ej: Balada de los Equipos de Protección">
+          </div>
+
+          <div class="campo-grupo">
+            <label for="campo-tema" class="campo-etiqueta">Tema académico asociado <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+            <select id="campo-tema" class="campo" required>
+              <option value="">Selecciona un tema académico...</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Audio MP3 -->
+        <div class="campo-grupo">
+          <label class="campo-etiqueta">Archivo de audio MP3 <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+          <div class="subida-audio-contenedor">
+            <input type="hidden" id="campo-audio" required>
+            <input type="file" id="input-archivo-audio" accept="audio/mpeg,audio/mp3,.mp3" style="display: none;">
+            <div class="fila" style="gap: var(--espacio-s); align-items: center; flex-wrap: wrap;">
+              <button type="button" id="btn-subir-audio" class="btn btn--secundario btn--pequeno">
+                🎵 Seleccionar y subir MP3
+              </button>
+              <span id="audio-nombre-archivo" style="font-size: var(--tamano-s); color: var(--color-texto-suave);">
+                Ningún archivo de audio cargado
+              </span>
+            </div>
+            <audio id="audio-previa" controls style="display: none; width: 100%; margin-top: var(--espacio-s);"></audio>
+            <small style="color: var(--color-texto-suave); font-size: var(--tamano-xs); margin-top: 4px;">
+              Formatos admitidos: MP3 (audio/mpeg). Tamaño máximo según configuración institucional.
+            </small>
+          </div>
+        </div>
+
+        <!-- Letra y LRC -->
+        <div class="fila-dos-columnas">
+          <div class="campo-grupo">
+            <label for="campo-letra" class="campo-etiqueta">Letra completa de la canción <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+            <textarea id="campo-letra" class="campo" rows="10" placeholder="Escribe o pega aquí la letra completa de la canción..." required></textarea>
+          </div>
+
+          <div class="campo-grupo">
+            <div class="fila" style="justify-content: space-between; align-items: baseline;">
+              <label for="campo-lrc" class="campo-etiqueta">Letra sincronizada LRC (opcional)</label>
+              <button type="button" id="btn-ejemplo-lrc" class="btn btn--fantasma btn--pequeno" style="padding: 0; font-size: var(--tamano-xs);">
+                Insertar plantilla LRC
+              </button>
+            </div>
+            <textarea id="campo-lrc" class="campo campo--mono" rows="10" placeholder="[00:08.50] Introducción instrumental...&#10;[00:15.20] Casco puesto en la cabeza...&#10;[00:20.10] Guantes listos para empezar..."></textarea>
+            <small style="color: var(--color-texto-suave); font-size: var(--tamano-xs); margin-top: 2px;">
+              Formato: <code>[mm:ss.xx] texto</code> por línea para sincronizar el resaltado en vivo con la reproducción.
+            </small>
+          </div>
+        </div>
+
+        <!-- Autoría y Licencia -->
+        <div class="fila-dos-columnas" style="padding-top: var(--espacio-s); border-top: 1px solid var(--color-borde);">
+          <div class="campo-grupo">
+            <label for="campo-autoria" class="campo-etiqueta">Autoría y compositores <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+            <input type="text" id="campo-autoria" class="campo" required placeholder="Ej: Docente Juan Pérez y Coro de Ingeniería Civil">
+          </div>
+
+          <div class="campo-grupo">
+            <label for="campo-licencia-tipo" class="campo-etiqueta">Tipo de licencia <span aria-hidden="true" style="color: var(--color-error);">*</span></label>
+            <select id="campo-licencia-tipo" class="campo" required>
+              <option value="Propia">Propia (Derechos reservados institucionales / docente)</option>
+              <option value="CC BY">Creative Commons Atribución (CC BY)</option>
+              <option value="CC BY-SA">Creative Commons Atribución-CompartirIgual (CC BY-SA)</option>
+              <option value="Otra">Otra licencia (con descripción)</option>
+            </select>
+            <input type="text" id="campo-licencia-otra" class="campo" placeholder="Especificar descripción de la licencia..." style="display: none; margin-top: var(--espacio-xs);">
+          </div>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="fila" style="justify-content: flex-end; gap: var(--espacio-m); margin-top: var(--espacio-l);">
+          <a href="/paginas/canciones.html" class="btn btn--secundario">Cancelar</a>
+          <button type="submit" id="btn-guardar" class="btn btn--primario">
+            Guardar canción
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="/js/modulos/editor-cancion.js"></script>
+</body>
+</html>

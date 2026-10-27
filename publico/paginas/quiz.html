@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz por niveles · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/quiz.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+
+  <main id="contenido" class="contenedor quiz-contenedor">
+    <!-- Encabezado general de la actividad -->
+    <header class="quiz-encabezado">
+      <div class="quiz-titulos">
+        <span class="quiz-subtitulo-etiqueta">Actividad formativa evaluativa</span>
+        <h1 class="quiz-titulo">Quiz por niveles taxonómicos</h1>
+        <div class="quiz-tema-seleccionado">
+          <span>Tema de estudio:</span>
+          <strong id="etiqueta-tema-titulo">Cargando tema...</strong>
+          <button type="button" id="btn-cambiar-tema" class="btn btn--texto btn--pequeno" title="Elegir otro tema">
+            (Cambiar tema)
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. VISTA DE NIVELES (Lobby / Tablero de 5 niveles) -->
+    <section id="vista-niveles" class="quiz-seccion-niveles" aria-label="Niveles taxonómicos de Bloom">
+      <div class="quiz-intro-card tarjeta">
+        <p>
+          Demuestra tu dominio progresando a través de los <strong>5 niveles cognitivos</strong>.
+          Cada nivel exige una tasa de aprobación mínima para desbloquear el siguiente nivel y obtener su <strong>diploma oficial de acreditación</strong>.
+        </p>
+      </div>
+
+      <div id="grid-niveles" class="quiz-grid-niveles">
+        <!-- Renderizado dinámico de 5 tarjetas de nivel -->
+      </div>
+    </section>
+
+    <!-- 2. VISTA DE SESIÓN DE PREGUNTAS (Una pregunta a la vez) -->
+    <section id="vista-sesion" class="quiz-seccion-sesion tarjeta" hidden aria-label="Pregunta actual del quiz">
+      <!-- Barra superior de sesión: Progreso y nivel -->
+      <header class="sesion-barra-superior">
+        <div class="sesion-meta">
+          <span id="sesion-nivel-etiqueta" class="chip chip--nivel">Nivel 1</span>
+          <span id="sesion-contador-preguntas" class="sesion-contador">Pregunta 1 de 10</span>
+        </div>
+        <button type="button" id="btn-abandonar-quiz" class="btn btn--texto btn--pequeno" title="Salir al menú de niveles">
+          ✕ Abandonar
+        </button>
+      </header>
+
+      <!-- Barra de progreso visual -->
+      <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barra-progreso-contenedor">
+        <div id="barra-progreso-llenado" class="progreso__barra" style="width: 0%;"></div>
+      </div>
+
+      <!-- Tarjeta de la pregunta -->
+      <div class="sesion-cuerpo-pregunta">
+        <h2 id="pregunta-enunciado" class="sesion-enunciado">Cargando pregunta...</h2>
+
+        <!-- Contenedor dinámico de opciones de respuesta -->
+        <div id="contenedor-respuestas" class="sesion-respuestas-caja">
+          <!-- Opciones múltiples / VF / Completar -->
+        </div>
+      </div>
+
+      <!-- Barra inferior de acciones -->
+      <footer class="sesion-acciones">
+        <button type="button" id="btn-responder-pregunta" class="btn btn--primario" disabled>
+          Responder
+        </button>
+        <button type="button" id="btn-siguiente-pregunta" class="btn btn--primario" hidden>
+          Siguiente pregunta →
+        </button>
+      </footer>
+    </section>
+
+    <!-- 3. VISTA DE RESULTADO FINAL -->
+    <section id="vista-resultado" class="quiz-seccion-resultado tarjeta" hidden aria-label="Resultado final de la evaluación">
+      <div class="resultado-cabecera">
+        <div id="resultado-icono-estado" class="resultado-icono">🎉</div>
+        <h2 id="resultado-titulo" class="resultado-titulo">¡Evaluación completada!</h2>
+        <p id="resultado-descripcion" class="resultado-descripcion">Resumen de tu rendimiento en este nivel.</p>
+      </div>
+
+      <!-- Métricas -->
+      <div class="resultado-metricas-grid">
+        <div class="metrica-caja aciertos">
+          <span class="metrica-etiqueta">Aciertos</span>
+          <strong id="metrica-aciertos" class="metrica-valor">0</strong>
+        </div>
+        <div class="metrica-caja errores">
+          <span class="metrica-etiqueta">Errores</span>
+          <strong id="metrica-errores" class="metrica-valor">0</strong>
+        </div>
+        <div class="metrica-caja porcentaje">
+          <span class="metrica-etiqueta">Calificación</span>
+          <strong id="metrica-porcentaje" class="metrica-valor">0%</strong>
+        </div>
+      </div>
+
+      <!-- Notificación de Puntos e Insignias -->
+      <div id="resultado-gamificacion" class="resultado-recompensas" hidden>
+        <span class="recompensa-icono">⭐</span>
+        <span id="resultado-puntos-texto">Has ganado +0 puntos</span>
+      </div>
+
+      <!-- Temas a repasar si hubo errores -->
+      <div id="resultado-bloque-repaso" class="resultado-repaso-caja" hidden>
+        <h3>📌 Puntos formativos a repasar:</h3>
+        <ul id="resultado-lista-repaso"></ul>
+      </div>
+
+      <!-- Acciones finales -->
+      <footer class="resultado-acciones">
+        <button type="button" id="btn-descargar-diploma" class="btn btn--secundario" hidden>
+          <span aria-hidden="true">📜</span> Descargar diploma
+        </button>
+        <button type="button" id="btn-reintentar-quiz" class="btn btn--primario">
+          Reintentar nivel
+        </button>
+        <button type="button" id="btn-volver-niveles" class="btn btn--secundario">
+          Volver a niveles
+        </button>
+      </footer>
+    </section>
+  </main>
+
+  <script type="module" src="/js/modulos/quiz.js"></script>
+</body>
+</html>

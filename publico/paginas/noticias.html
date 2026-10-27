@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noticias · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/noticias.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <header class="noticias-cabecera">
+      <div class="fila" style="justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: var(--espacio-m);">
+        <div class="pila" style="gap: var(--espacio-xs);">
+          <h1 class="noticias-titulo" style="margin-bottom: 0;">Noticias y Novedades</h1>
+          <p style="color: var(--color-texto-suave); margin-bottom: 0;">Mantente al día con anuncios institucionales, académicos y eventos del ecosistema.</p>
+        </div>
+        <div id="bloque-accion-docente" style="display: none;">
+          <a href="/paginas/editor-noticia.html" class="btn btn--primario" id="btn-nueva-noticia">
+            + Nueva noticia
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Barra de Filtros -->
+    <section class="tarjeta noticias-filtros" aria-label="Filtros de noticias">
+      <div class="fila" style="gap: var(--espacio-m); flex-wrap: wrap; align-items: center; justify-content: space-between;">
+        <div class="fila" style="gap: var(--espacio-s); flex-wrap: wrap; flex: 1;">
+          <div style="min-width: 160px;">
+            <label for="filtro-categoria" class="sr-only">Filtrar por categoría</label>
+            <select id="filtro-categoria" class="campo campo--pequeno">
+              <option value="">Todas las categorías</option>
+              <option value="Institucional">Institucional</option>
+              <option value="Académica">Académica</option>
+              <option value="Eventos">Eventos</option>
+              <option value="Logros">Logros</option>
+            </select>
+          </div>
+
+          <div style="min-width: 180px;">
+            <label for="filtro-tema" class="sr-only">Filtrar por tema</label>
+            <select id="filtro-tema" class="campo campo--pequeno">
+              <option value="">Todos los temas</option>
+            </select>
+          </div>
+
+          <div style="min-width: 200px; flex: 1;">
+            <label for="filtro-busqueda" class="sr-only">Buscar noticias</label>
+            <input type="search" id="filtro-busqueda" class="campo campo--pequeno" placeholder="Buscar por título o contenido...">
+          </div>
+        </div>
+
+        <div id="contador-noticias" style="font-size: var(--tamano-xs); color: var(--color-texto-suave); white-space: nowrap;">
+          Cargando noticias...
+        </div>
+      </div>
+    </section>
+
+    <!-- Rejilla de Tarjetas -->
+    <section id="contenedor-noticias-grid" aria-label="Listado de noticias" style="margin-top: var(--espacio-l);">
+      <div id="rejilla-noticias" class="noticias-cuadricula" role="list">
+        <!-- Renderizado dinámico -->
+      </div>
+    </section>
+
+    <!-- Paginación -->
+    <nav id="paginacion-noticias" class="paginacion" aria-label="Paginación de noticias" style="margin-top: var(--espacio-xl); display: none;">
+      <!-- Botones de paginación dinámicos -->
+    </nav>
+  </main>
+  <script type="module" src="/js/modulos/noticias.js"></script>
+</body>
+</html>

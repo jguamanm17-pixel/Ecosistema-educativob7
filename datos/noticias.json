@@ -1,0 +1,58 @@
+[
+  {
+    "titulo": "Nuevo período académico e inicio de actividades formativas",
+    "categoria": "Institucional",
+    "resumen": "Damos la bienvenida a los estudiantes de la carrera de Ingeniería Civil para el nuevo período formativo 2026-2027.",
+    "cuerpo": "Estimada comunidad académica:\n\nIniciamos este nuevo período académico con el firme compromiso de fortalecer las competencias técnicas y prácticas en el ámbito de la ingeniería y la construcción civil.\n\nDurante este ciclo abordaremos normativas vigentes, protocolos de prevención y talleres prácticos.\n\n*Recuerden:* Mantener actualizado su perfil institucional y revisar periódicamente las asignaturas matriculadas.",
+    "destacada": true,
+    "estado": "publicado",
+    "autorId": "usu_000002",
+    "imagen": null,
+    "temaId": null,
+    "fechaPublicacion": "2026-10-25T13:35:38.181Z",
+    "id": "not_000001",
+    "fecha": "2026-10-25T13:35:38.182Z"
+  },
+  {
+    "titulo": "Taller de Equipos de Protección Individual y Colectiva",
+    "categoria": "Eventos",
+    "temaId": "tem_000001",
+    "resumen": "Se llevará a cabo el taller presencial y simulado sobre uso adecuado de arneses, cascos y líneas de vida en obras civiles.",
+    "cuerpo": "El departamento de Ingeniería Civil invita a todos los estudiantes al taller especializado en prevención de riesgos laborales.\n\nContenido a desarrollar:\n- Inspección previa de equipos de protección personal (EPP)\n- Instalación de líneas de vida y anclajes seguros\n- Normativa técnica ecuatoriana y estándares internacionales\n\n*Fecha:* Próximo viernes a las 10:00 AM en el laboratorio técnico.",
+    "destacada": false,
+    "estado": "publicado",
+    "autorId": "usu_000002",
+    "imagen": "/recursos/subidas/9b6adaeb61a6670f5ef0d95a4a8aa4e5.webp",
+    "fechaPublicacion": "2026-10-25T13:35:38.191Z",
+    "id": "not_000002",
+    "fecha": "2026-10-25T13:35:38.198Z"
+  },
+  {
+    "titulo": "Reconocimiento en simulación de prevención de riesgos",
+    "categoria": "Logros",
+    "resumen": "Estudiantes de nuestra facultad destacan con los puntajes más altos en el simulador interactivo de seguridad laboral.",
+    "cuerpo": "Felicitamos a los estudiantes que demostraron excelencia en la toma de decisiones críticas durante las simulaciones de obra.\n\nSu desempeño evidencia la importancia de la capacitación continua en prevención de riesgos.",
+    "destacada": false,
+    "estado": "publicado",
+    "autorId": "usu_000002",
+    "imagen": "/recursos/subidas/65d097571024589ceac69ab26892b110.jpg",
+    "temaId": null,
+    "fechaPublicacion": "2026-10-25T13:35:38.213Z",
+    "id": "not_000003",
+    "fecha": "2026-10-25T13:35:38.215Z"
+  },
+  {
+    "titulo": "Borrador interno: Guía metodológica para docentes",
+    "categoria": "Académica",
+    "resumen": "Lineamientos pedagógicos preliminares para la evaluación de competencias digitales en ingeniería.",
+    "cuerpo": "Documento en revisión interna por el equipo docente antes de su difusión general.",
+    "destacada": false,
+    "estado": "borrador",
+    "autorId": "usu_000002",
+    "imagen": null,
+    "temaId": null,
+    "fechaPublicacion": null,
+    "id": "not_000004",
+    "fecha": "2026-10-25T13:35:38.232Z"
+  }
+]

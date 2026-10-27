@@ -1,0 +1,260 @@
+[
+  {
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "tipo": "opcion",
+    "enunciado": "¿Cuál es el color del casco para personal técnico o ingenieros según normas generales?",
+    "opciones": [
+      "Blanco",
+      "Azul",
+      "Rojo",
+      "Verde"
+    ],
+    "correcta": 0,
+    "retroalimentacion": "El casco blanco identifica al personal directivo, ingenieros y supervisores.",
+    "estado": "aprobado",
+    "origen": "docente",
+    "id": "pre_000001",
+    "fecha": "2026-10-25T15:05:36.638Z"
+  },
+  {
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "tipo": "opcion",
+    "enunciado": "Según el glosario, ¿cómo se define específicamente a los cascos en la protección en la construcción?",
+    "opciones": [
+      "Prendas de protección para la cabeza diseñadas para absorber impactos y evitar traumatismos mecánicos.",
+      "Calzado con puntera de acero y suela antiperforación para salvaguardar los pies del trabajador.",
+      "Conjunto de correas diseñado para sostener el cuerpo y distribuir las fuerzas en caso de una caída.",
+      "Lentes de policarbonato con protección lateral contra impactos de virutas y polvo."
+    ],
+    "correcta": 0,
+    "retroalimentacion": "Los cascos son prendas diseñadas específicamente para absorber impactos en la cabeza y prevenir traumatismos mecánicos según el glosario proporcionado.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000002",
+    "fecha": "2026-10-26T19:49:39.560Z"
+  },
+  {
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "tipo": "vf",
+    "enunciado": "Las redes de seguridad tipo horca instaladas bajo forjados en ejecución se consideran un ejemplo de equipo de protección colectiva (EPC).",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correcta": true,
+    "retroalimentacion": "El contenido y los ejemplos indican explícitamente que la instalación de redes de seguridad bajo forjados corresponde a sistemas de protección colectiva.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000003",
+    "fecha": "2026-10-26T19:49:39.608Z"
+  },
+  {
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "tipo": "completar",
+    "enunciado": "Según el glosario, las mallas de cuerda sintética instaladas bajo las zonas de trabajo para recoger operarios o escombros se denominan ____.",
+    "opciones": [],
+    "correcta": "redes",
+    "retroalimentacion": "El glosario define a las redes como mallas de cuerda sintética para recoger operarios o escombros bajo las zonas de trabajo.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000004",
+    "fecha": "2026-10-26T19:49:39.643Z"
+  },
+  {
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "tipo": "opcion",
+    "enunciado": "¿Qué dispositivo se define en el glosario como aquel acoplado a la mascarilla que retiene partículas de polvo o vapores tóxicos en el aire?",
+    "opciones": [
+      "Visera",
+      "Filtro",
+      "Tapones",
+      "Arnés"
+    ],
+    "correcta": 1,
+    "retroalimentacion": "El filtro es el dispositivo específico acoplado a la mascarilla encargado de retener partículas de polvo o vapores tóxicos.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000005",
+    "fecha": "2026-10-26T19:49:39.658Z"
+  },
+  {
+    "temaId": "tem_000001",
+    "nivel": 1,
+    "tipo": "vf",
+    "enunciado": "El chaleco se describe como una prenda de alta visibilidad con bandas retrorreflectantes para facilitar que el trabajador sea visto por la maquinaria.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correcta": true,
+    "retroalimentacion": "El glosario define al chaleco exactamente como una prenda de alta visibilidad con bandas retrorreflectantes para este propósito de seguridad.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000006",
+    "fecha": "2026-10-26T19:49:39.671Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "opcion",
+    "enunciado": "Para un proyecto que requiere realizar el tendido de tubería sanitaria a una profundidad superior a 1.50 metros, ¿cuál de las siguientes combinaciones de sistemas de control preventivo resulta técnicamente más adecuada según los contenidos analizados?",
+    "opciones": [
+      "Uso exclusivo de bermas en el borde superior y señalización con barriles cilíndricos.",
+      "Implementación de entibación tipo cajón de acero combinada con el análisis de los factores de inestabilidad de taludes.",
+      "Colocación de puntales metálicos telescópicos de forma aislada sin revestimiento en las paredes de la zanja.",
+      "Instalación de andamios tubulares con doble barandilla perimetral dentro de la excavación."
+    ],
+    "correcta": 1,
+    "retroalimentacion": "El contenido especifica el uso de entibación cajón de acero en zanjas para tubería sanitaria con profundidad superior a 1.50 metros, y los objetivos destacan reconocer factores de inestabilidad para seleccionar sistemas adecuados.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000007",
+    "fecha": "2026-10-26T19:52:46.961Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "vf",
+    "enunciado": "Al evaluar la efectividad de los controles preventivos en trabajos en altura, la instalación de un andamio tubular que incluya base autonivelante, crucetas diagonales y doble barandilla perimetral cumple de manera integral con los criterios técnicos para evitar caídas a distinto nivel.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correcta": true,
+    "retroalimentacion": "El ejemplo brindado en el contenido detalla precisamente el armado de un andamio tubular con estos componentes específicos como medida de control técnica.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000008",
+    "fecha": "2026-10-26T19:52:47.138Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "opcion",
+    "enunciado": "Al evaluar las medidas de control para prevenir sepultamientos en excavaciones abiertas de tipo lineal y estrecho, ¿cuál de las siguientes definiciones del glosario corresponde al revestimiento metálico o de madera destinado a sostener las paredes para evitar desprendimientos?",
+    "opciones": [
+      "Talud",
+      "Bermas",
+      "Entibado",
+      "Arriostre"
+    ],
+    "correcta": 2,
+    "retroalimentacion": "El glosario define explícitamente al entibado como el revestimiento de madera o placas metálicas que sostiene las paredes de una zanja para evitar desprendimientos.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000009",
+    "fecha": "2026-10-26T19:52:47.232Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "vf",
+    "enunciado": "Para garantizar la estabilidad ante el riesgo de sepultamiento en excavaciones, las bermas se definen como elementos estructurales verticales que soportan barandillas y rodapiés en los bordes de losas.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correcta": false,
+    "retroalimentacion": "La afirmación es falsa porque las bermas son franjas horizontales de seguridad dejadas al borde superior de excavaciones para contener derrumbes, mientras que los elementos verticales para barandillas corresponden a los postes.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000010",
+    "fecha": "2026-10-26T19:52:47.312Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "completar",
+    "enunciado": "Para rigidizar la estructura de un andamio y evitar deformaciones que pongan en riesgo la estabilidad del trabajador en altura, se debe emplear un elemento dispuesto diagonalmente conocido como ____.",
+    "opciones": [],
+    "correcta": "arriostre",
+    "retroalimentacion": "El glosario define al arriostre como el elemento dispuesto diagonalmente para rigidizar la estructura del andamio y evitar deformaciones.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000011",
+    "fecha": "2026-10-26T19:52:47.355Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "opcion",
+    "enunciado": "Al evaluar la planificación y el control preventivo para minimizar la letalidad por sepultamientos en excavaciones abiertas tipo zanjas para tubería sanitaria con una profundidad superior a 1.50 metros, ¿cuál de las siguientes opciones representa la medida de control técnico más adecuada según los contenidos?",
+    "opciones": [
+      "Instalación exclusiva de barriles perimetrales para delimitar la zona de peligro.",
+      "Uso de un sistema de entibación tipo cajón de acero para sostener las paredes y evitar desprendimientos.",
+      "Colocación de una escala portátil sin fijación estructural en el fondo de la zanja.",
+      "Disposición de postes verticales sin arriostres en los bordes superiores."
+    ],
+    "correcta": 1,
+    "retroalimentacion": "El uso de cajón de acero en zanjas mayores a 1.50 metros es el sistema de entibación adecuado para prevenir sepultamientos según los ejemplos técnicos analizados.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000012",
+    "fecha": "2026-10-26T19:54:43.732Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "vf",
+    "enunciado": "Al evaluar la efectividad de los controles preventivos contra caídas a distinto nivel, un andamio tubular correctamente armado con base autonivelante, crucetas diagonales y doble barandilla perimetral responde de forma integral a la planificación técnica para obras en altura.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correcta": true,
+    "retroalimentacion": "El enunciado describe exactamente los componentes técnicos requeridos para un armado seguro de andamios que evitan caídas, cumpliendo con los criterios de evaluación.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000013",
+    "fecha": "2026-10-26T19:54:43.795Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "completar",
+    "enunciado": "Para dotar de estabilidad natural al terreno excavado y evitar colapsos mediante una inclinación lateral adecuada, se debe diseñar correctamente el ____.",
+    "opciones": [],
+    "correcta": "talud",
+    "retroalimentacion": "El talud es la inclinación lateral del terreno excavado practicada para dotarlo de estabilidad natural y evitar colapsos.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000014",
+    "fecha": "2026-10-26T19:54:43.834Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "opcion",
+    "enunciado": "Al juzgar la idoneidad de los elementos de seguridad en excavaciones abiertas, ¿cuál es la función técnica correcta de las bermas según el glosario proporcionado?",
+    "opciones": [
+      "Soportar temporalmente las paredes de la zanja mediante presión hidráulica o mecánica.",
+      "Servir como franjas horizontales de seguridad dejadas al borde superior para contener derrumbes.",
+      "Impedir la caída accidental de herramientas gracias a su ubicación al ras de la plataforma.",
+      "Permitir el ascenso y descenso controlado de los trabajadores a la excavación."
+    ],
+    "correcta": 1,
+    "retroalimentacion": "Las bermas se definen específicamente como franjas horizontales de seguridad dejadas al borde superior de excavaciones para contener derrumbes.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000015",
+    "fecha": "2026-10-26T19:54:43.867Z"
+  },
+  {
+    "temaId": "tem_000002",
+    "nivel": 5,
+    "tipo": "completar",
+    "enunciado": "Para apear temporalmente losas, vigas o paredes de zanja durante las labores de construcción, se utiliza un elemento metálico telescópico denominado ____.",
+    "opciones": [],
+    "correcta": "puntal",
+    "retroalimentacion": "El puntal es el elemento metálico telescópico utilizado para apear temporalmente estructuras o paredes de zanja.",
+    "origen": "ia",
+    "estado": "aprobado",
+    "id": "pre_000016",
+    "fecha": "2026-10-26T19:54:43.900Z"
+  }
+]

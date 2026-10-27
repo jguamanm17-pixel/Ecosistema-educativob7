@@ -1,0 +1,54 @@
+/* publico/css/modulos/editor-cancion.css · Estilos para el editor de canciones */
+.editor-cabecera {
+  margin-bottom: var(--espacio-l);
+}
+
+.enlace-volver {
+  display: inline-block;
+  font-size: var(--tamano-s);
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+.enlace-volver:hover {
+  color: var(--color-acento);
+}
+
+.editor-formulario-bloque {
+  background-color: var(--color-superficie);
+  padding: var(--espacio-l);
+  border-radius: var(--radio-l);
+  border: 1px solid var(--color-borde);
+  box-shadow: var(--sombra-1);
+}
+
+.fila-dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-m);
+}
+
+@media (max-width: 640px) {
+  .fila-dos-columnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.subida-audio-contenedor {
+  background-color: var(--color-fondo);
+  border: 1px dashed var(--color-borde);
+  border-radius: var(--radio-m);
+  padding: var(--espacio-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+}
+
+.campo--mono {
+  font-family: var(--fuente-mono);
+  font-size: var(--tamano-xs);
+  line-height: 1.5;
+  tab-size: 2;
+  white-space: pre;
+}

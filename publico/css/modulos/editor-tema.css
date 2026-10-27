@@ -1,0 +1,193 @@
+/* publico/css/modulos/editor-tema.css · Estilos para la ficha del tema y glosario */
+
+.tema-contenedor {
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-2xl);
+}
+
+.tema-barra-superior {
+  margin-bottom: var(--espacio-m);
+  padding-bottom: var(--espacio-s);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tema-volver-enlace {
+  color: var(--color-primario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-seminegrita);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transicion);
+}
+
+.tema-volver-enlace:hover {
+  color: var(--color-primario-oscuro);
+  text-decoration: underline;
+}
+
+.tema-titulo-principal {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  color: var(--color-primario);
+  line-height: var(--interlineado-apretado);
+}
+
+.tema-miga {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+}
+
+.tema-seccion {
+  background-color: var(--color-superficie);
+  border-radius: var(--radio-m);
+  border: 1px solid var(--color-borde);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+}
+
+.tema-seccion__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-xl);
+  color: var(--color-primario);
+  margin-bottom: var(--espacio-m);
+  padding-bottom: var(--espacio-xs);
+  border-bottom: 2px solid var(--color-acento);
+}
+
+/* Vista previa de resumen */
+.tema-vista-previa {
+  padding: var(--espacio-m);
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-s);
+  margin-top: var(--espacio-xs);
+  min-height: 120px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.tema-vista-previa p {
+  margin-bottom: var(--espacio-s);
+}
+
+.tema-vista-previa ul {
+  padding-left: var(--espacio-l);
+  margin-bottom: var(--espacio-s);
+}
+
+.tema-vista-previa li {
+  list-style-type: disc;
+  margin-bottom: var(--espacio-xs);
+}
+
+.tema-contador-barra {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+  margin-top: var(--espacio-xs);
+}
+
+.contador--valido {
+  color: var(--color-exito);
+  font-weight: var(--peso-negrita);
+}
+
+.contador--invalido {
+  color: var(--color-advertencia);
+}
+
+/* Fieldset para listas dinámicas */
+.campo-fieldset {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-s);
+  padding: var(--espacio-s) var(--espacio-m);
+  background-color: var(--color-fondo);
+}
+
+.campo-fieldset__legend {
+  font-weight: var(--peso-seminegrita);
+  font-size: var(--tamano-sm);
+  color: var(--color-primario);
+  padding: 0 var(--espacio-xs);
+}
+
+.items-dinamicos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  max-height: 180px;
+  overflow-y: auto;
+  margin-top: var(--espacio-xs);
+}
+
+.item-dinamico-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacio-s);
+  background-color: var(--color-superficie);
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-s);
+  border: 1px solid var(--color-borde);
+  font-size: var(--tamano-sm);
+}
+
+.item-dinamico-texto {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Recursos didácticos */
+.recursos-lista-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.recurso-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacio-s);
+  padding: var(--espacio-xs) var(--espacio-s);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-s);
+}
+
+.recurso-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  flex: 1;
+  overflow: hidden;
+}
+
+.recurso-link {
+  font-size: var(--tamano-sm);
+  color: var(--color-primario);
+  text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tabla Glosario */
+.glosario-termino-celda {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+}
+
+.glosario-termino-nombre {
+  font-weight: var(--peso-negrita);
+  color: var(--color-primario);
+}
+
+.glosario-conteo-palabras {
+  font-size: var(--tamano-xs);
+  color: var(--color-texto-suave);
+  margin-top: var(--espacio-xs);
+}

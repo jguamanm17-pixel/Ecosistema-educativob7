@@ -1,0 +1,75 @@
+/* publico/css/tokens.css · Variables de diseño de identidad UNEMI */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* --- 1. Colores institucionales y de interfaz --- */
+  --color-primario: #002E45;
+  --color-primario-oscuro: #102A3E;
+  --color-secundario: #1C3247;
+  --color-acento: #FF6900;
+  --color-exito: #1D6540;
+  --color-advertencia: #964200; /* PROVISIONAL: ajustado para contraste accesible AA (4.5:1) */
+  --color-error: #B3261E;
+  --color-info: #14648E;
+
+  --color-fondo: #F5F7F8;
+  --color-superficie: #FFFFFF;
+  --color-borde: #DFE7EC;
+  --color-texto: #182D3E;
+  --color-texto-suave: #556877; /* PROVISIONAL: contraste AA > 4.6:1 sobre fondo claro */
+  --color-texto-inverso: #FFFFFF;
+
+  /* Fondos suaves y focos accesibles */
+  --color-exito-fondo: #E6F5EC;
+  --color-advertencia-fondo: #FFF4E5;
+  --color-error-fondo: #FDE8E8;
+  --color-info-fondo: #ECF6FA;
+  --color-foco: #1470A8;
+  --color-foco-anillo: rgba(20, 112, 168, 0.25); /* PROVISIONAL */
+
+  /* --- 2. Tipografía --- */
+  --fuente-base: 'Poppins', Arial, sans-serif;
+  --fuente-titulos: 'Poppins', Arial, sans-serif;
+  --fuente-mono: ui-monospace, SFMono-Regular, Consolas, monospace; /* PROVISIONAL */
+
+  --tamano-xs: 0.75rem;   /* 12px */
+  --tamano-s: 0.875rem;   /* 14px */
+  --tamano-m: 1rem;       /* 16px */
+  --tamano-l: 1.25rem;    /* 20px */
+  --tamano-xl: 1.5rem;    /* 24px */
+  --tamano-2xl: 2rem;     /* 32px */
+  --tamano-3xl: 2.5rem;   /* 40px */
+
+  --peso-regular: 400;
+  --peso-medio: 500;
+  --peso-seminegrita: 600;
+  --peso-negrita: 700;
+  --peso-extranegrita: 800;
+
+  --interlineado-apretado: 1.25;
+  --interlineado-base: 1.6;
+  --interlineado-amplio: 1.8;
+
+  /* --- 3. Espaciados --- */
+  --espacio-xs: 0.25rem;  /* 4px */
+  --espacio-s: 0.5rem;    /* 8px */
+  --espacio-m: 1rem;      /* 16px */
+  --espacio-l: 1.5rem;    /* 24px */
+  --espacio-xl: 2rem;     /* 32px */
+  --espacio-2xl: 3rem;    /* 48px */
+
+  /* --- 4. Radios de borde --- */
+  --radio-s: 4px;
+  --radio-m: 8px;
+  --radio-l: 12px;
+  --radio-completo: 9999px;
+
+  /* --- 5. Sombras --- */
+  --sombra-1: 0 2px 8px rgba(0, 46, 69, 0.06);
+  --sombra-2: 0 8px 24px rgba(0, 46, 69, 0.10);
+  --sombra-3: 0 16px 36px rgba(0, 46, 69, 0.14);
+
+  /* --- 6. Transición y dimensiones --- */
+  --transicion: 0.2s ease;
+  --ancho-maximo: 1280px;
+}

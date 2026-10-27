@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banco de preguntas · Ecosistema Educativo Digital</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/banco-preguntas.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+
+  <main id="contenido" class="contenedor">
+    <!-- Encabezado de sección y controles principales -->
+    <header class="banco-encabezado">
+      <div class="banco-titulos">
+        <h1 class="banco-titulo">Banco de preguntas</h1>
+        <p class="banco-subtitulo">
+          Gestiona y genera preguntas por niveles de la taxonomía de Bloom para las evaluaciones y quizzes.
+        </p>
+      </div>
+
+      <div class="banco-acciones-superiores">
+        <a href="/paginas/admin-ia.html" id="btn-config-ia" class="btn btn--secundario" hidden>
+          <span aria-hidden="true">⚙️</span> Configurar IA
+        </a>
+        <button type="button" id="btn-generar-ia" class="btn btn--secundario" disabled>
+          <span aria-hidden="true">🤖</span> Generar con IA
+        </button>
+        <button type="button" id="btn-nueva-pregunta" class="btn btn--primario" disabled>
+          <span aria-hidden="true">+</span> Nueva pregunta manual
+        </button>
+      </div>
+    </header>
+
+    <!-- Barra de selección de tema -->
+    <section class="tarjeta banco-selector-card" aria-label="Selección de tema">
+      <div class="banco-selector-grid">
+        <div class="campo">
+          <label for="selector-tema" class="campo__etiqueta"><strong>Seleccionar tema:</strong></label>
+          <select id="selector-tema" class="campo__control" aria-describedby="ayuda-tema">
+            <option value="">Cargando temas disponibles...</option>
+          </select>
+          <span id="ayuda-tema" class="campo__ayuda">Solo se muestran los temas de las asignaturas a tu cargo.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pestañas de niveles de Bloom (1 a 5) con contador de aprobadas -->
+    <section class="banco-navegacion-niveles" aria-label="Niveles de dificultad">
+      <div role="tablist" class="banco-pestanas" id="pestanas-niveles">
+        <button role="tab" id="tab-nivel-1" aria-selected="true" aria-controls="panel-preguntas" tabindex="0" class="banco-tab activo" data-nivel="1">
+          <span class="tab-titulo">Nivel 1 · Recordar</span>
+          <span class="tab-contador" id="contador-nivel-1" title="Preguntas aprobadas">0</span>
+        </button>
+        <button role="tab" id="tab-nivel-2" aria-selected="false" aria-controls="panel-preguntas" tabindex="-1" class="banco-tab" data-nivel="2">
+          <span class="tab-titulo">Nivel 2 · Comprender</span>
+          <span class="tab-contador" id="contador-nivel-2" title="Preguntas aprobadas">0</span>
+        </button>
+        <button role="tab" id="tab-nivel-3" aria-selected="false" aria-controls="panel-preguntas" tabindex="-1" class="banco-tab" data-nivel="3">
+          <span class="tab-titulo">Nivel 3 · Aplicar</span>
+          <span class="tab-contador" id="contador-nivel-3" title="Preguntas aprobadas">0</span>
+        </button>
+        <button role="tab" id="tab-nivel-4" aria-selected="false" aria-controls="panel-preguntas" tabindex="-1" class="banco-tab" data-nivel="4">
+          <span class="tab-titulo">Nivel 4 · Analizar</span>
+          <span class="tab-contador" id="contador-nivel-4" title="Preguntas aprobadas">0</span>
+        </button>
+        <button role="tab" id="tab-nivel-5" aria-selected="false" aria-controls="panel-preguntas" tabindex="-1" class="banco-tab" data-nivel="5">
+          <span class="tab-titulo">Nivel 5 · Evaluar</span>
+          <span class="tab-contador" id="contador-nivel-5" title="Preguntas aprobadas">0</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Alerta de preguntas insuficientes (si aprobadas < 20) -->
+    <div id="alerta-insuficientes" class="banco-alerta-aviso" hidden role="alert">
+      <span class="alerta-icono" aria-hidden="true">⚠️</span>
+      <div class="alerta-contenido">
+        <strong>Preguntas insuficientes para este nivel:</strong>
+        <span id="mensaje-insuficientes">Actualmente hay menos de 20 preguntas aprobadas.</span>
+        <span class="alerta-detalle">Se recomienda un banco mínimo de 20 preguntas para garantizar aleatoriedad en las evaluaciones.</span>
+      </div>
+    </div>
+
+    <!-- Lista de preguntas del nivel activo -->
+    <section id="panel-preguntas" role="tabpanel" aria-labelledby="tab-nivel-1" class="banco-panel-preguntas">
+      <div id="lista-preguntas" class="banco-lista-preguntas">
+        <!-- Renderizado dinámico -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal para Edición / Creación Manual de Preguntas -->
+  <div id="modal-pregunta" class="modal-fondo" hidden role="dialog" aria-modal="true" aria-labelledby="titulo-modal-pregunta">
+    <div class="modal banco-modal-caja">
+      <header class="modal-cabecera">
+        <h2 id="titulo-modal-pregunta">Nueva pregunta</h2>
+      </header>
+
+      <form id="form-pregunta" class="modal-cuerpo banco-form">
+        <input type="hidden" id="pregunta-id" value="">
+
+        <div class="form-fila-dos">
+          <div class="campo">
+            <label for="pregunta-tipo" class="campo__etiqueta">Tipo de pregunta:</label>
+            <select id="pregunta-tipo" class="campo__control" required>
+              <option value="opcion">Opción múltiple</option>
+              <option value="vf">Verdadero / Falso</option>
+              <option value="completar">Completar palabra/frase</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="pregunta-nivel" class="campo__etiqueta">Nivel cognitivo:</label>
+            <select id="pregunta-nivel" class="campo__control" required>
+              <option value="1">1 · Recordar</option>
+              <option value="2">2 · Comprender</option>
+              <option value="3">3 · Aplicar</option>
+              <option value="4">4 · Analizar</option>
+              <option value="5">5 · Evaluar</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="pregunta-enunciado" class="campo__etiqueta">Enunciado de la pregunta:</label>
+          <textarea id="pregunta-enunciado" class="campo__control" rows="3" required placeholder="Escribe el planteamiento o pregunta..."></textarea>
+        </div>
+
+        <!-- Sección dinámica según el tipo -->
+        <div id="seccion-opciones" class="banco-seccion-respuestas">
+          <!-- Dinámico: opciones múltiples, vf o completar -->
+        </div>
+
+        <div class="campo">
+          <label for="pregunta-retro" class="campo__etiqueta">Retroalimentación formativa:</label>
+          <textarea id="pregunta-retro" class="campo__control" rows="2" placeholder="Explicación de por qué la respuesta es correcta..."></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="pregunta-estado" class="campo__etiqueta">Estado:</label>
+          <select id="pregunta-estado" class="campo__control">
+            <option value="aprobado">Aprobado</option>
+            <option value="borrador">Borrador</option>
+          </select>
+        </div>
+
+        <footer class="modal-pie">
+          <button type="button" id="btn-cancelar-modal" class="btn btn--secundario">Cancelar</button>
+          <button type="submit" id="btn-guardar-pregunta" class="btn btn--primario">Guardar pregunta</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para Generación con IA y revisión de propuestas -->
+  <div id="modal-ia" class="modal-fondo" hidden role="dialog" aria-modal="true" aria-labelledby="titulo-modal-ia">
+    <div class="modal banco-modal-ia">
+      <header class="modal-cabecera">
+        <h2 id="titulo-modal-ia">Generar preguntas con IA</h2>
+      </header>
+
+      <div class="modal-cuerpo">
+        <!-- Paso 1: Configurar generación -->
+        <div id="ia-paso-config" class="banco-ia-config">
+          <p class="banco-texto-ayuda">
+            La Inteligencia Artificial analizará el contenido del tema, objetivos, ejemplos y glosario para redactar preguntas alineadas al nivel taxonómico seleccionado.
+          </p>
+
+          <div class="form-fila-dos">
+            <div class="campo">
+              <label for="ia-nivel" class="campo__etiqueta">Nivel de Bloom:</label>
+              <select id="ia-nivel" class="campo__control">
+                <option value="1">1 · Recordar</option>
+                <option value="2">2 · Comprender</option>
+                <option value="3">3 · Aplicar</option>
+                <option value="4">4 · Analizar</option>
+                <option value="5">5 · Evaluar</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="ia-cantidad" class="campo__etiqueta">Cantidad a generar (5 a 15):</label>
+              <input type="number" id="ia-cantidad" class="campo__control" min="5" max="15" value="5">
+            </div>
+          </div>
+
+          <div class="modal-pie">
+            <button type="button" id="btn-cerrar-ia" class="btn btn--secundario">Cerrar</button>
+            <button type="button" id="btn-ejecutar-ia" class="btn btn--primario">
+              <span aria-hidden="true">✨</span> Iniciar generación
+            </button>
+          </div>
+        </div>
+
+        <!-- Indicador de carga de IA -->
+        <div id="ia-cargando" class="banco-ia-cargando" hidden>
+          <div class="cargando"></div>
+          <p>Generando propuestas pedagógicas con IA... Por favor espera un momento.</p>
+        </div>
+
+        <!-- Paso 2: Revisión de propuestas generadas -->
+        <div id="ia-paso-revision" class="banco-ia-revision" hidden>
+          <div class="revision-cabecera">
+            <p><strong>Propuestas generadas:</strong> Revisa cada pregunta para aprobarla, editarla o descartarla.</p>
+            <button type="button" id="btn-aprobar-todas-ia" class="btn btn--primario btn--pequeno">
+              Aprobar todas las restantes
+            </button>
+          </div>
+
+          <div id="contenedor-propuestas-ia" class="banco-lista-propuestas">
+            <!-- Tarjetas de propuestas -->
+          </div>
+
+          <div class="modal-pie">
+            <button type="button" id="btn-finalizar-ia" class="btn btn--secundario">Finalizar revisión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Modal para Configuración del Motor de IA (Solo Administrador) -->
+  <div id="modal-config-ia" class="modal-fondo" hidden role="dialog" aria-modal="true" aria-labelledby="titulo-modal-config-ia">
+    <div class="modal banco-modal-caja">
+      <header class="modal-cabecera">
+        <h2 id="titulo-modal-config-ia">Configuración de Inteligencia Artificial</h2>
+      </header>
+
+      <form id="form-config-ia" class="modal-cuerpo banco-form">
+        <p class="banco-texto-ayuda">
+          Configura el proveedor de Google Gemini, la clave de API y el modelo a utilizar (ej: <code>gemini-3.8-flash</code> o <code>gemini-4-argon</code>). Los cambios se aplican de inmediato en caliente.
+        </p>
+
+        <div class="campo">
+          <label for="cfg-ia-clave" class="campo__etiqueta"><strong>API Key de Gemini:</strong></label>
+          <div style="display: flex; gap: var(--espacio-xs);">
+            <input type="password" id="cfg-ia-clave" class="campo__control" placeholder="Introduce la clave de Gemini (ej: AIzaSy...)" autocomplete="off">
+            <button type="button" id="btn-toggle-clave" class="btn btn--secundario btn--pequeno" title="Mostrar/Ocultar clave">👁️</button>
+          </div>
+          <span class="campo__ayuda" id="ayuda-clave-actual">Sin clave configurada (se usará respaldo formativo local).</span>
+        </div>
+
+        <div class="campo">
+          <label for="cfg-ia-modelo" class="campo__etiqueta"><strong>Modelo de IA:</strong></label>
+          <input type="text" id="cfg-ia-modelo" class="campo__control" list="lista-modelos-ia" placeholder="Selecciona o escribe el modelo (ej: gemini-3.8-flash)">
+          <datalist id="lista-modelos-ia">
+            <option value="gemini-3.8-flash"></option>
+            <option value="gemini-4-argon"></option>
+            <option value="gemini-2.5-flash"></option>
+            <option value="gemini-2.0-flash"></option>
+            <option value="gemini-1.5-flash"></option>
+            <option value="gemini-1.5-pro"></option>
+          </datalist>
+          <span class="campo__ayuda">Modelos recomendados: <code>gemini-3.8-flash</code> o <code>gemini-4-argon</code>.</span>
+        </div>
+
+        <div id="resultado-prueba-ia" class="banco-alerta-aviso" hidden>
+          <span class="alerta-icono" id="icono-prueba-ia">ℹ️</span>
+          <div class="alerta-contenido" id="mensaje-prueba-ia"></div>
+        </div>
+
+        <footer class="modal-pie">
+          <button type="button" id="btn-probar-ia" class="btn btn--secundario">
+            <span aria-hidden="true">🔌</span> Probar conexión
+          </button>
+          <button type="button" id="btn-cerrar-config-ia" class="btn btn--secundario">Cancelar</button>
+          <button type="submit" id="btn-guardar-config-ia" class="btn btn--primario">Guardar configuración</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="/js/modulos/banco-preguntas.js"></script>
+</body>
+</html>

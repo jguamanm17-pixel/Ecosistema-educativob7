@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Distributivo · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/distributivo.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor distributivo-contenedor">
+    <header class="distributivo-encabezado fila" style="justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--espacio-m);">
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1 class="distributivo-titulo">Distributivo Académico</h1>
+        <p class="distributivo-subtitulo">Asignación de asignaturas, paralelos, docentes y estudiantes por período lectivo.</p>
+      </div>
+      <button type="button" id="btn-nuevo-grupo" class="btn btn--primario">
+        + Nuevo grupo
+      </button>
+    </header>
+
+    <!-- Tabla de grupos -->
+    <section class="tarjeta distributivo-tarjeta-tabla" aria-labelledby="titulo-tabla-distributivo">
+      <h2 id="titulo-tabla-distributivo" class="sr-only">Listado de grupos del distributivo</h2>
+      <div class="tabla-contenedor">
+        <table class="tabla" id="tabla-distributivo">
+          <thead>
+            <tr>
+              <th scope="col">Asignatura</th>
+              <th scope="col" style="text-align: center; width: 100px;">Paralelo</th>
+              <th scope="col" style="width: 140px;">Período</th>
+              <th scope="col">Docente</th>
+              <th scope="col" style="text-align: center; width: 130px;">Estudiantes</th>
+              <th scope="col" style="text-align: right; min-width: 160px;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-distributivo">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: var(--espacio-xl); color: var(--color-texto-suave);">
+                Cargando distributivo...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/js/modulos/distributivo.js"></script>
+</body>
+</html>
