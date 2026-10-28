@@ -58,9 +58,9 @@ async function validarAccesoTema(usuario, temaId) {
     throw Object.assign(new Error('Acceso no autorizado'), { estado: 401 });
   }
 
-  if (usuario.rol !== 'estudiante' && usuario.rol !== 'admin') {
+  if (usuario.rol !== 'estudiante' && usuario.rol !== 'docente' && usuario.rol !== 'admin') {
     throw Object.assign(
-      new Error('Solo los estudiantes tienen acceso a las evaluaciones quiz'),
+      new Error('Acceso no autorizado para este rol'),
       { estado: 403 }
     );
   }

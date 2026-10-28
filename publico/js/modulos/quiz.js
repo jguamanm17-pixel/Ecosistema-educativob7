@@ -25,7 +25,7 @@ let respuestaSeleccionada = null;
  * Inicialización de la página
  */
 async function iniciar() {
-  await montarPlantilla({ titulo: 'Quiz por niveles', roles: ['estudiante'] });
+  await montarPlantilla({ titulo: 'Quiz por niveles', roles: ['estudiante', 'docente', 'admin'] });
 
   conectarEventosGenerales();
 
