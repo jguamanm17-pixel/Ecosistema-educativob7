@@ -297,9 +297,19 @@ btnReproducir.addEventListener('click', async () => {
         const rutaWav = cancionActiva.audio.replace(/\.mp3$/, '.wav');
         audio.src = rutaWav;
         audio.load();
-        await audio.play().catch((e) => aviso(e.message, 'error'));
+        await audio.play().catch((e) => {
+          if (e.message?.includes('supported source') || e.name === 'NotSupportedError') {
+            aviso('El archivo de audio está preparado para incorporarse. Cárgalo en el reproductor.', 'alerta');
+          } else {
+            aviso(e.message, 'error');
+          }
+        });
       } else {
-        aviso(err.message || 'Error al iniciar reproducción de audio', 'error');
+        if (err.message?.includes('supported source') || err.name === 'NotSupportedError') {
+          aviso('El archivo de audio está preparado para incorporarse. Cárgalo en el reproductor.', 'alerta');
+        } else {
+          aviso(err.message || 'Error al iniciar reproducción de audio', 'error');
+        }
       }
     }
   } else {

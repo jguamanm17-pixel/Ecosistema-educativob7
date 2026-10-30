@@ -228,7 +228,7 @@
                 </div>
               </div>
 
-              <!-- Botones de Acción: Ver Letra y Descargar -->
+              <!-- Botones de Acción: Ver Letra, Cargar MP3 y Descargar -->
               <div class="reproductor-moderno__pie">
                 <button
                   type="button"
@@ -239,17 +239,13 @@
                 >
                   📜 <span id="texto-toggle-letra">Ver letra original completa</span>
                 </button>
-                <a
-                  href="/recursos/subidas/mi-seguridad-es-primero.mp3"
-                  download="Mi-Seguridad-Es-Primero.mp3"
-                  class="btn btn--texto btn--pequeno"
-                  title="Descargar archivo MP3 original"
-                >
-                  ⬇️ Descargar audio MP3
-                </a>
+                <label class="btn btn--secundario btn--pequeno" style="cursor: pointer; margin-bottom: 0;" title="Cargar tu archivo MP3 descargado de Suno">
+                  📁 Cargar mi MP3
+                  <input type="file" id="input-subir-mp3-cancion" accept="audio/mp3,audio/mpeg,audio/wav,audio/*" style="display: none;">
+                </label>
                 <a
                   href="/paginas/canciones.html"
-                  class="btn btn--secundario btn--pequeno"
+                  class="btn btn--texto btn--pequeno"
                   title="Ir al módulo completo de canciones"
                 >
                   🎵 Ver repertorio

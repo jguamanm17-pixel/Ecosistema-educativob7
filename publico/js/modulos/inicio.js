@@ -2,7 +2,7 @@
 import { montarPlantilla } from '../nucleo/plantilla.js';
 import * as api from '../nucleo/api.js';
 import { usuarioActual } from '../nucleo/sesion.js';
-import { cargando, escapar } from '../nucleo/ui.js';
+import { aviso, cargando, escapar } from '../nucleo/ui.js';
 import { fechaRelativa } from '../nucleo/util.js';
 import { calcularAvance } from './asignaturas.js';
 
@@ -293,10 +293,27 @@ function inicializarReproductorCancion() {
       }
     } catch (err) {
       console.warn('Aviso de reproducción de audio:', err.message);
+      if (err.name === 'NotSupportedError' || err.message?.includes('supported source')) {
+        aviso('El reproductor está preparado. Selecciona tu archivo MP3 descargado de Suno mediante el botón «📁 Cargar mi MP3».', 'alerta');
+      } else if (err.name !== 'AbortError') {
+        aviso(`Aviso de audio: ${err.message}`, 'alerta');
+      }
     }
   };
 
   btnPlay?.addEventListener('click', togglePlay);
+
+  // Carga manual del archivo MP3 por parte del usuario
+  const inputSubirMp3 = document.getElementById('input-subir-mp3-cancion');
+  inputSubirMp3?.addEventListener('change', async (e) => {
+    const archivo = e.target.files?.[0];
+    if (!archivo) return;
+    const urlLocal = URL.createObjectURL(archivo);
+    audio.src = urlLocal;
+    audio.load();
+    aviso('Archivo de audio cargado correctamente. ¡Listo para escuchar!', 'exito');
+    await togglePlay();
+  });
 
   // Retroceder / Avanzar 10 segundos
   btnRetroceder?.addEventListener('click', () => {
