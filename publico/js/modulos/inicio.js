@@ -200,3 +200,201 @@ if (!usuario) {
     cargando(false);
   }
 }
+
+/**
+ * Formatea segundos a mm:ss
+ * @param {number} seg
+ * @returns {string}
+ */
+function formatearTiempo(seg) {
+  if (isNaN(seg) || seg < 0) return '00:00';
+  const m = Math.floor(seg / 60);
+  const s = Math.floor(seg % 60);
+  return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+/**
+ * Inicializa los controles del reproductor interactivo de la canción
+ */
+function inicializarReproductorCancion() {
+  const seccion = document.getElementById('seccion-cancion-destacada');
+  if (!seccion) return;
+
+  // Si no hay usuario autenticado, mover la sección a la vista pública
+  if (!usuario && vistaPublica) {
+    const gridCaracteristicas = vistaPublica.querySelector('.caracteristicas-grid');
+    if (gridCaracteristicas) {
+      vistaPublica.insertBefore(seccion, gridCaracteristicas);
+    } else {
+      vistaPublica.appendChild(seccion);
+    }
+  }
+
+  const audio = document.getElementById('cancion-destacada-audio');
+  const btnPlay = document.getElementById('btn-cancion-play');
+  const iconoPlay = document.getElementById('icono-play-simbolo');
+  const btnRetroceder = document.getElementById('btn-cancion-retroceder');
+  const btnAvanzar = document.getElementById('btn-cancion-avanzar');
+  const barraProgreso = document.getElementById('cancion-barra-progreso');
+  const tiempoActual = document.getElementById('cancion-tiempo-actual');
+  const tiempoTotal = document.getElementById('cancion-tiempo-total');
+  const btnMute = document.getElementById('btn-cancion-mute');
+  const iconoVolumen = document.getElementById('icono-volumen-simbolo');
+  const barraVolumen = document.getElementById('cancion-barra-volumen');
+  const volumenPorcentaje = document.getElementById('cancion-volumen-porcentaje');
+  const onda = document.getElementById('cancion-onda');
+  const btnToggleLetra = document.getElementById('btn-cancion-toggle-letra');
+  const textoToggleLetra = document.getElementById('texto-toggle-letra');
+  const contenedorLetra = document.getElementById('cancion-contenedor-letra');
+  const imgPortada = document.getElementById('cancion-destacada-img');
+
+  if (!audio) return;
+
+  // Fallback si la imagen no cargara
+  if (imgPortada) {
+    imgPortada.addEventListener('error', () => {
+      imgPortada.src = '/recursos/subidas/mi-seguridad-es-primero-cover.jpg';
+    });
+  }
+
+  // Configurar volumen inicial
+  audio.volume = Number(barraVolumen?.value) || 0.85;
+
+  let usuarioArrastrando = false;
+
+  // Actualizar metadatos de duración cuando estén listos
+  const actualizarDuracion = () => {
+    if (!isNaN(audio.duration) && isFinite(audio.duration)) {
+      tiempoTotal.textContent = formatearTiempo(audio.duration);
+    }
+  };
+
+  audio.addEventListener('loadedmetadata', actualizarDuracion);
+  audio.addEventListener('durationchange', actualizarDuracion);
+  if (audio.readyState >= 1) {
+    actualizarDuracion();
+  }
+
+  // Reproducir / Pausar
+  const togglePlay = async () => {
+    try {
+      if (audio.paused) {
+        await audio.play();
+        iconoPlay.textContent = '⏸';
+        btnPlay.title = 'Pausar canción';
+        btnPlay.setAttribute('aria-label', 'Pausar canción');
+        onda?.classList.add('reproductor-moderno__onda--activo');
+      } else {
+        audio.pause();
+        iconoPlay.textContent = '▶';
+        btnPlay.title = 'Reproducir canción';
+        btnPlay.setAttribute('aria-label', 'Reproducir canción');
+        onda?.classList.remove('reproductor-moderno__onda--activo');
+      }
+    } catch (err) {
+      console.warn('Aviso de reproducción de audio:', err.message);
+    }
+  };
+
+  btnPlay?.addEventListener('click', togglePlay);
+
+  // Retroceder / Avanzar 10 segundos
+  btnRetroceder?.addEventListener('click', () => {
+    audio.currentTime = Math.max(0, audio.currentTime - 10);
+  });
+
+  btnAvanzar?.addEventListener('click', () => {
+    const dur = isNaN(audio.duration) ? audio.currentTime + 10 : audio.duration;
+    audio.currentTime = Math.min(dur, audio.currentTime + 10);
+  });
+
+  // Progreso en vivo
+  audio.addEventListener('timeupdate', () => {
+    if (usuarioArrastrando) return;
+    if (audio.duration && !isNaN(audio.duration)) {
+      const porcentaje = (audio.currentTime / audio.duration) * 100;
+      barraProgreso.value = porcentaje;
+      barraProgreso.style.background = `linear-gradient(to right, var(--color-primario) 0%, var(--color-primario) ${porcentaje}%, var(--color-borde) ${porcentaje}%, var(--color-borde) 100%)`;
+    }
+    tiempoActual.textContent = formatearTiempo(audio.currentTime);
+  });
+
+  // Arrastrar o hacer clic en la barra de progreso
+  barraProgreso?.addEventListener('input', () => {
+    usuarioArrastrando = true;
+    if (audio.duration && !isNaN(audio.duration)) {
+      const seg = (Number(barraProgreso.value) / 100) * audio.duration;
+      tiempoActual.textContent = formatearTiempo(seg);
+    }
+  });
+
+  barraProgreso?.addEventListener('change', () => {
+    usuarioArrastrando = false;
+    if (audio.duration && !isNaN(audio.duration)) {
+      audio.currentTime = (Number(barraProgreso.value) / 100) * audio.duration;
+    }
+  });
+
+  // Cuando finaliza la pista
+  audio.addEventListener('ended', () => {
+    iconoPlay.textContent = '▶';
+    btnPlay.title = 'Reproducir canción';
+    btnPlay.setAttribute('aria-label', 'Reproducir canción');
+    onda?.classList.remove('reproductor-moderno__onda--activo');
+    barraProgreso.value = 0;
+    tiempoActual.textContent = '00:00';
+  });
+
+  // Control de volumen
+  let volumenPrevio = audio.volume;
+
+  const actualizarVolumen = (val) => {
+    audio.volume = val;
+    if (barraVolumen) barraVolumen.value = val;
+    const porcentaje = Math.round(val * 100);
+    if (volumenPorcentaje) volumenPorcentaje.textContent = `${porcentaje}%`;
+
+    if (val === 0) {
+      if (iconoVolumen) iconoVolumen.textContent = '🔇';
+      if (btnMute) btnMute.title = 'Activar sonido';
+    } else if (val < 0.5) {
+      if (iconoVolumen) iconoVolumen.textContent = '🔉';
+      if (btnMute) btnMute.title = 'Silenciar';
+    } else {
+      if (iconoVolumen) iconoVolumen.textContent = '🔊';
+      if (btnMute) btnMute.title = 'Silenciar';
+    }
+  };
+
+  barraVolumen?.addEventListener('input', (e) => {
+    const val = Number(e.target.value);
+    actualizarVolumen(val);
+    if (val > 0) volumenPrevio = val;
+  });
+
+  btnMute?.addEventListener('click', () => {
+    if (audio.volume > 0) {
+      volumenPrevio = audio.volume;
+      actualizarVolumen(0);
+    } else {
+      actualizarVolumen(volumenPrevio || 0.85);
+    }
+  });
+
+  // Desplegable de la letra completa
+  btnToggleLetra?.addEventListener('click', () => {
+    const estaOculto = contenedorLetra.hasAttribute('hidden');
+    if (estaOculto) {
+      contenedorLetra.removeAttribute('hidden');
+      btnToggleLetra.setAttribute('aria-expanded', 'true');
+      textoToggleLetra.textContent = 'Ocultar letra original';
+    } else {
+      contenedorLetra.setAttribute('hidden', '');
+      btnToggleLetra.setAttribute('aria-expanded', 'false');
+      textoToggleLetra.textContent = 'Ver letra original completa';
+    }
+  });
+}
+
+// Iniciar reproductor interactivo
+inicializarReproductorCancion();

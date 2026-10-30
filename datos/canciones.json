@@ -1,5 +1,17 @@
 [
   {
+    "titulo": "MI SEGURIDAD ES PRIMERO",
+    "temaId": "tem_000001",
+    "audio": "/recursos/subidas/mi-seguridad-es-primero.mp3",
+    "imagen": "/recursos/subidas/seguridad-construccion.jpg",
+    "letra": "[Intro – Hablado]\n¡Hey, hey! ¡Atención, estudiantes!\nEn la construcción hay una regla especial:\n¡Mi vida y mi seguridad son lo principal!\n\n[Verso 1]\nCuando llego a trabajar, Mi seguridad debo cuidar.\nCasco puesto, botas también, ¡Con protección todo sale bien!\nMis guantes debo utilizar, Y mis ojos siempre proteger.\nCada riesgo debo identificar, ¡La prevención es mi prioridad!\n\n[Pre-coro]\nNo es un juego, es responsabilidad,\nLa seguridad es nuestra prioridad.\nAntes de empezar, voy a revisar,\n¡Porque mi vida debo cuidar!\n\n[Coro – Pegadizo y enérgico]\n¡Ponte el casco, ponte las botas!\n¡Usa tus guantes, cuida tus manos!\nGafas y arnés, no pueden faltar,\n¡En la construcción nos vamos a cuidar!\n¡Alto al peligro, sí a la prevención!\nTrabajamos juntos con precaución.\nMi vida vale, la tuya también,\n¡Seguros hoy, mañana y siempre también!\n\n[Verso 2]\nSi una herramienta voy a utilizar,\nPrimero su estado debo revisar.\nSi hay un peligro, debo informar,\nNunca improvisar, siempre prevenir.\nEn las alturas mucha atención,\nUso mi arnés con precaución.\nMantengo el orden en mi lugar,\n¡Un área segura nos hace avanzar!\n\n[Puente – Participativo]\n¿Casco? ¡Puesto!\n¿Botas? ¡Puestas!\n¿Guantes? ¡Listos!\n¿Gafas? ¡También!\n¿Y la seguridad? ¡Siempre al cien!\n\n[Coro final – Con más energía]\n¡Ponte el casco, ponte las botas!\n¡Usa tus guantes, cuida tus manos!\nGafas y arnés, no pueden faltar,\n¡En la construcción nos vamos a cuidar!\n¡Alto al peligro, sí a la prevención!\nTrabajamos juntos con precaución.\nMi vida vale, la tuya también,\n¡La seguridad es nuestro mayor bien!\n\n[Outro – Hablado]\nRecuerda esta gran lección:\n¡Primero la vida, después la construcción!\n¡La seguridad comienza contigo!",
+    "lrc": "[00:01.00] ¡Hey, hey! ¡Atención, estudiantes!\n[00:04.00] En la construcción hay una regla especial:\n[00:07.00] ¡Mi vida y mi seguridad son lo principal!\n[00:10.00] Cuando llego a trabajar, Mi seguridad debo cuidar\n[00:13.50] Casco puesto, botas también, ¡Con protección todo sale bien!\n[00:17.00] Mis guantes debo utilizar, Y mis ojos siempre proteger\n[00:20.50] Cada riesgo debo identificar, ¡La prevención es mi prioridad!\n[00:24.00] No es un juego, es responsabilidad, La seguridad es nuestra prioridad\n[00:28.00] Antes de empezar, voy a revisar, ¡Porque mi vida debo cuidar!\n[00:32.00] ¡Ponte el casco, ponte las botas! ¡Usa tus guantes, cuida tus manos!\n[00:36.00] Gafas y arnés, no pueden faltar, ¡En la construcción nos vamos a cuidar!\n[00:40.00] ¡Alto al peligro, sí a la prevención! Trabajamos juntos con precaución\n[00:44.00] Mi vida vale, la tuya también, ¡Seguros hoy, mañana y siempre también!\n[00:48.00] Si una herramienta voy a utilizar, Primero su estado debo revisar\n[00:52.00] Si hay un peligro, debo informar, Nunca improvisar, siempre prevenir\n[00:56.00] En las alturas mucha atención, Uso mi arnés con precaución\n[01:00.00] Mantengo el orden en mi lugar, ¡Un área segura nos hace avanzar!\n[01:04.00] ¿Casco? ¡Puesto! ¿Botas? ¡Puestas!\n[01:08.00] ¿Guantes? ¡Listos! ¿Gafas? ¡También! ¿Y la seguridad? ¡Siempre al cien!\n[01:12.00] ¡Ponte el casco, ponte las botas! ¡Usa tus guantes, cuida tus manos!\n[01:16.00] Gafas y arnés, no pueden faltar, ¡En la construcción nos vamos a cuidar!\n[01:20.00] ¡Alto al peligro, sí a la prevención! Trabajamos juntos con precaución\n[01:24.00] Mi vida vale, la tuya también, ¡La seguridad es nuestro mayor bien!\n[01:28.00] ¡Primero la vida, después la construcción! ¡La seguridad comienza contigo!",
+    "autoria": "Cátedra de Prevención de Riesgos & Ecosistema Educativo",
+    "licencia": "CC BY-SA",
+    "id": "can_000001",
+    "fecha": "2026-10-29T20:30:00.000Z"
+  },
+  {
     "titulo": "Balada de los Equipos de Protección (EPP)",
     "temaId": "tem_000001",
     "audio": "/recursos/subidas/cancion-seguridad.wav",
@@ -7,7 +19,7 @@
     "lrc": "[00:01.00] En la obra cada día la seguridad es primero\n[00:03.50] Con el casco y las botas cuidamos al compañero\n[00:06.00] El arnés bien ajustado antes de subir a la altura\n[00:08.50] La línea de vida anclada nos da la máxima holgura\n[00:11.00] Guantes y gafas firmes frente a cualquier peligro\n[00:13.50] ¡Prevenir accidentes es nuestro mayor compromiso!",
     "autoria": "Cátedra de Protección en la Construcción & Coro Universitario",
     "licencia": "CC BY-SA",
-    "id": "can_000001",
+    "id": "can_000002",
     "fecha": "2026-10-25T13:49:26.961Z"
   }
 ]

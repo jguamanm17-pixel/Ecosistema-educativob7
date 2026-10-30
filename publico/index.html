@@ -99,6 +99,251 @@
         </div>
       </section>
 
+      <!-- Nuestra canción: Mi seguridad es primero -->
+      <section class="tarjeta cancion-destacada" id="seccion-cancion-destacada" aria-labelledby="titulo-cancion-destacada">
+        <div class="cancion-destacada__grid">
+          <!-- Columna Imagen Temática -->
+          <div class="cancion-destacada__visual">
+            <img
+              src="/recursos/subidas/seguridad-construccion.jpg"
+              alt="Trabajadores de la construcción en obra con casco, chaleco reflectivo, guantes y botas de seguridad"
+              class="cancion-destacada__imagen"
+              id="cancion-destacada-img"
+              loading="lazy"
+            />
+            <div class="cancion-destacada__etiqueta-flotante">
+              <span aria-hidden="true">🦺</span> Prevención y Seguridad Laboral
+            </div>
+          </div>
+
+          <!-- Columna Contenido y Reproductor -->
+          <div class="cancion-destacada__cuerpo">
+            <header class="cancion-destacada__cabecera">
+              <div class="fila" style="gap: var(--espacio-xs); align-items: center; flex-wrap: wrap;">
+                <span class="insignia insignia--primario">Música Didáctica</span>
+                <span class="insignia insignia--acento">Cultura Preventiva</span>
+              </div>
+              <h2 id="titulo-cancion-destacada" class="cancion-destacada__titulo">
+                Nuestra canción: «Mi seguridad es primero»
+              </h2>
+              <p class="cancion-destacada__descripcion">
+                La seguridad en la construcción no es un trámite, es el compromiso fundamental de regresar sanos a casa cada día. El uso correcto de los Equipos de Protección Personal (EPP) —casco, guantes, calzado con puntera de acero, chaleco reflectante y protección visual— junto a la identificación temprana de riesgos y el trabajo responsable salvan vidas y construyen un entorno laboral digno y profesional.
+              </p>
+            </header>
+
+            <!-- Reproductor Moderno y Atractivo -->
+            <div class="reproductor-moderno" role="region" aria-label="Reproductor de audio: Mi seguridad es primero">
+              <audio id="cancion-destacada-audio" preload="metadata">
+                <source src="/recursos/subidas/mi-seguridad-es-primero.mp3" type="audio/mpeg">
+                Tu navegador no soporta la reproducción de audio.
+              </audio>
+
+              <!-- Barra de pista y ecualizador animado -->
+              <div class="reproductor-moderno__meta">
+                <div class="reproductor-moderno__onda" id="cancion-onda" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="reproductor-moderno__info">
+                  <strong class="reproductor-moderno__pista">Mi Seguridad Es Primero</strong>
+                  <span class="reproductor-moderno__artista">Pop urbano educativo / Reguetón suave · Ecosistema Educativo</span>
+                </div>
+              </div>
+
+              <!-- Barra de Progreso y Tiempos -->
+              <div class="reproductor-moderno__progreso-bloque">
+                <label for="cancion-barra-progreso" class="sr-only">Barra de progreso de reproducción</label>
+                <input
+                  type="range"
+                  id="cancion-barra-progreso"
+                  class="reproductor-moderno__slider reproductor-moderno__slider--progreso"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  aria-label="Posición de la canción en porcentaje"
+                />
+                <div class="reproductor-moderno__tiempos">
+                  <span id="cancion-tiempo-actual">00:00</span>
+                  <span id="cancion-tiempo-total">--:--</span>
+                </div>
+              </div>
+
+              <!-- Controles de Reproducción y Volumen -->
+              <div class="reproductor-moderno__controles">
+                <div class="reproductor-moderno__botones-principales">
+                  <button
+                    type="button"
+                    id="btn-cancion-retroceder"
+                    class="btn-control btn-control--secundario"
+                    title="Retroceder 10 segundos"
+                    aria-label="Retroceder 10 segundos"
+                  >
+                    ⏪ -10s
+                  </button>
+
+                  <button
+                    type="button"
+                    id="btn-cancion-play"
+                    class="btn-control btn-control--play"
+                    title="Reproducir / Pausar canción"
+                    aria-label="Reproducir canción"
+                  >
+                    <span id="icono-play-simbolo" aria-hidden="true">▶</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    id="btn-cancion-avanzar"
+                    class="btn-control btn-control--secundario"
+                    title="Avanzar 10 segundos"
+                    aria-label="Avanzar 10 segundos"
+                  >
+                    +10s ⏩
+                  </button>
+                </div>
+
+                <!-- Control de Volumen y Silencio -->
+                <div class="reproductor-moderno__volumen-bloque">
+                  <button
+                    type="button"
+                    id="btn-cancion-mute"
+                    class="btn-control btn-control--icono"
+                    title="Silenciar / Activar sonido"
+                    aria-label="Silenciar o activar sonido"
+                  >
+                    <span id="icono-volumen-simbolo" aria-hidden="true">🔊</span>
+                  </button>
+                  <label for="cancion-barra-volumen" class="sr-only">Nivel de volumen</label>
+                  <input
+                    type="range"
+                    id="cancion-barra-volumen"
+                    class="reproductor-moderno__slider reproductor-moderno__slider--volumen"
+                    min="0"
+                    max="1"
+                    step="0.02"
+                    value="0.85"
+                    aria-label="Controlar volumen"
+                  />
+                  <span id="cancion-volumen-porcentaje" class="reproductor-moderno__volumen-texto">85%</span>
+                </div>
+              </div>
+
+              <!-- Botones de Acción: Ver Letra y Descargar -->
+              <div class="reproductor-moderno__pie">
+                <button
+                  type="button"
+                  id="btn-cancion-toggle-letra"
+                  class="btn btn--texto btn--pequeno"
+                  aria-expanded="false"
+                  aria-controls="cancion-contenedor-letra"
+                >
+                  📜 <span id="texto-toggle-letra">Ver letra original completa</span>
+                </button>
+                <a
+                  href="/recursos/subidas/mi-seguridad-es-primero.mp3"
+                  download="Mi-Seguridad-Es-Primero.mp3"
+                  class="btn btn--texto btn--pequeno"
+                  title="Descargar archivo MP3 original"
+                >
+                  ⬇️ Descargar audio MP3
+                </a>
+                <a
+                  href="/paginas/canciones.html"
+                  class="btn btn--secundario btn--pequeno"
+                  title="Ir al módulo completo de canciones"
+                >
+                  🎵 Ver repertorio
+                </a>
+              </div>
+
+              <!-- Letra Completa Desplegable -->
+              <div id="cancion-contenedor-letra" class="reproductor-moderno__letra" hidden>
+                <div class="reproductor-moderno__letra-encabezado">
+                  <strong>Letra oficial: «Mi seguridad es primero»</strong>
+                  <span style="font-size: var(--tamano-xs); color: var(--color-texto-suave);">Pop urbano educativo / Reguetón suave</span>
+                </div>
+                <div class="reproductor-moderno__letra-cuerpo">
+                  <p class="estrofa estrofa--intro">
+                    <span class="estrofa-etiqueta">[Intro – Hablado]</span><br>
+                    ¡Hey, hey! ¡Atención, estudiantes!<br>
+                    En la construcción hay una regla especial:<br>
+                    ¡Mi vida y mi seguridad son lo principal!
+                  </p>
+
+                  <p class="estrofa">
+                    <span class="estrofa-etiqueta">[Verso 1]</span><br>
+                    Cuando llego a trabajar, Mi seguridad debo cuidar.<br>
+                    Casco puesto, botas también, ¡Con protección todo sale bien!<br>
+                    Mis guantes debo utilizar, Y mis ojos siempre proteger.<br>
+                    Cada riesgo debo identificar, ¡La prevención es mi prioridad!
+                  </p>
+
+                  <p class="estrofa estrofa--precoro">
+                    <span class="estrofa-etiqueta">[Pre-coro]</span><br>
+                    No es un juego, es responsabilidad,<br>
+                    La seguridad es nuestra prioridad.<br>
+                    Antes de empezar, voy a revisar,<br>
+                    ¡Porque mi vida debo cuidar!
+                  </p>
+
+                  <p class="estrofa estrofa--coro">
+                    <span class="estrofa-etiqueta">[Coro – Pegadizo y enérgico]</span><br>
+                    ¡Ponte el casco, ponte las botas!<br>
+                    ¡Usa tus guantes, cuida tus manos!<br>
+                    Gafas y arnés, no pueden faltar,<br>
+                    ¡En la construcción nos vamos a cuidar!<br>
+                    ¡Alto al peligro, sí a la prevención!<br>
+                    Trabajamos juntos con precaución.<br>
+                    Mi vida vale, la tuya también,<br>
+                    ¡Seguros hoy, mañana y siempre también!
+                  </p>
+
+                  <p class="estrofa">
+                    <span class="estrofa-etiqueta">[Verso 2]</span><br>
+                    Si una herramienta voy a utilizar,<br>
+                    Primero su estado debo revisar.<br>
+                    Si hay un peligro, debo informar,<br>
+                    Nunca improvisar, siempre prevenir.<br>
+                    En las alturas mucha atención,<br>
+                    Uso mi arnés con precaución.<br>
+                    Mantengo el orden en mi lugar,<br>
+                    ¡Un área segura nos hace avanzar!
+                  </p>
+
+                  <p class="estrofa estrofa--puente">
+                    <span class="estrofa-etiqueta">[Puente – Participativo]</span><br>
+                    ¿Casco? ¡Puesto!<br>
+                    ¿Botas? ¡Puestas!<br>
+                    ¿Guantes? ¡Listos!<br>
+                    ¿Gafas? ¡También!<br>
+                    ¿Y la seguridad? ¡Siempre al cien!
+                  </p>
+
+                  <p class="estrofa estrofa--coro">
+                    <span class="estrofa-etiqueta">[Coro final – Con más energía]</span><br>
+                    ¡Ponte el casco, ponte las botas!<br>
+                    ¡Usa tus guantes, cuida tus manos!<br>
+                    Gafas y arnés, no pueden faltar,<br>
+                    ¡En la construcción nos vamos a cuidar!<br>
+                    ¡Alto al peligro, sí a la prevención!<br>
+                    Trabajamos juntos con precaución.<br>
+                    Mi vida vale, la tuya también,<br>
+                    ¡La seguridad es nuestro mayor bien!
+                  </p>
+
+                  <p class="estrofa estrofa--outro">
+                    <span class="estrofa-etiqueta">[Outro – Hablado]</span><br>
+                    Recuerda esta gran lección:<br>
+                    ¡Primero la vida, después la construcción!<br>
+                    ¡La seguridad comienza contigo!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Mis asignaturas y avance -->
       <section class="seccion-bloque" aria-label="Mis asignaturas">
         <div class="fila" style="justify-content: space-between; align-items: center; margin-bottom: var(--espacio-m);">
