@@ -134,6 +134,7 @@
             <!-- Reproductor Moderno y Atractivo -->
             <div class="reproductor-moderno" role="region" aria-label="Reproductor de audio: Mi seguridad es primero">
               <audio id="cancion-destacada-audio" preload="metadata">
+                <source src="/recursos/subidas/mi-seguridad-es-primero.wav" type="audio/wav">
                 <source src="/recursos/subidas/mi-seguridad-es-primero.mp3" type="audio/mpeg">
                 Tu navegador no soporta la reproducción de audio.
               </audio>
@@ -239,8 +240,16 @@
                 >
                   📜 <span id="texto-toggle-letra">Ver letra original completa</span>
                 </button>
-                <label class="btn btn--secundario btn--pequeno" style="cursor: pointer; margin-bottom: 0;" title="Cargar tu archivo MP3 descargado de Suno">
-                  📁 Cargar mi MP3
+                <button
+                  type="button"
+                  id="btn-narrar-voz-interactiva"
+                  class="btn btn--secundario btn--pequeno"
+                  title="Activar narración vocal con síntesis de voz en vivo"
+                >
+                  🎙️ Voz en vivo
+                </button>
+                <label class="btn btn--texto btn--pequeno" style="cursor: pointer; margin-bottom: 0;" title="Cargar archivo de audio propio">
+                  📁 Cargar audio
                   <input type="file" id="input-subir-mp3-cancion" accept="audio/mp3,audio/mpeg,audio/wav,audio/*" style="display: none;">
                 </label>
                 <a

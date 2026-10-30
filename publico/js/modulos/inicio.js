@@ -411,6 +411,119 @@ function inicializarReproductorCancion() {
       textoToggleLetra.textContent = 'Ver letra original completa';
     }
   });
+
+  // Narración interactiva con síntesis de voz en vivo
+  const btnNarrarVoz = document.getElementById('btn-narrar-voz-interactiva');
+  let narrando = false;
+
+  btnNarrarVoz?.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) {
+      aviso('Tu navegador no soporta síntesis de voz interactiva.', 'alerta');
+      return;
+    }
+
+    if (narrando) {
+      window.speechSynthesis.cancel();
+      narrando = false;
+      btnNarrarVoz.textContent = '🎙️ Voz en vivo';
+      btnNarrarVoz.classList.remove('btn--activo');
+      onda?.classList.remove('reproductor-moderno__onda--activo');
+      return;
+    }
+
+    // Detener audio grabado si está sonando
+    if (!audio.paused) {
+      audio.pause();
+      iconoPlay.textContent = '▶';
+    }
+
+    const textoLetra = `
+      Mi seguridad es primero.
+      ¡Hey, hey! ¡Atención, estudiantes!
+      En la construcción hay una regla especial:
+      ¡Mi vida y mi seguridad son lo principal!
+
+      Cuando llego a trabajar, mi seguridad debo cuidar.
+      Casco puesto, botas también, ¡con protección todo sale bien!
+      Mis guantes debo utilizar, y mis ojos siempre proteger.
+      Cada riesgo debo identificar, ¡la prevención es mi prioridad!
+
+      No es un juego, es responsabilidad.
+      La seguridad es nuestra prioridad.
+      Antes de empezar, voy a revisar,
+      ¡porque mi vida debo cuidar!
+
+      ¡Ponte el casco, ponte las botas!
+      ¡Usa tus guantes, cuida tus manos!
+      Gafas y arnés no pueden faltar,
+      ¡en la construcción nos vamos a cuidar!
+
+      ¡Alto al peligro, sí a la prevención!
+      Trabajamos juntos con precaución.
+      Mi vida vale, la tuya también,
+      ¡seguros hoy, mañana y siempre también!
+
+      Si una herramienta voy a utilizar, primero su estado debo revisar.
+      Si hay un peligro, debo informar, nunca improvisar, siempre prevenir.
+      En las alturas mucha atención, uso mi arnés con precaución.
+      Mantengo el orden en mi lugar, ¡un área segura nos hace avanzar!
+
+      ¿Casco? ¡Puesto!
+      ¿Botas? ¡Puestas!
+      ¿Guantes? ¡Listos!
+      ¿Gafas? ¡También!
+      ¿Y la seguridad? ¡Siempre al cien!
+
+      ¡Ponte el casco, ponte las botas!
+      ¡Usa tus guantes, cuida tus manos!
+      Gafas y arnés no pueden faltar,
+      ¡en la construcción nos vamos a cuidar!
+
+      ¡Alto al peligro, sí a la prevención!
+      Trabajamos juntos con precaución.
+      Mi vida vale, la tuya también,
+      ¡la seguridad es nuestro mayor bien!
+
+      Recuerda esta gran lección:
+      ¡Primero la vida, después la construcción!
+      ¡La seguridad comienza contigo!
+    `;
+
+    const enunciado = new SpeechSynthesisUtterance(textoLetra);
+    enunciado.lang = 'es-ES';
+    enunciado.rate = 0.95;
+
+    // Buscar voz en español
+    const voces = window.speechSynthesis.getVoices();
+    const vozEsp = voces.find((v) => v.lang.startsWith('es'));
+    if (vozEsp) {
+      enunciado.voice = vozEsp;
+    }
+
+    enunciado.onstart = () => {
+      narrando = true;
+      btnNarrarVoz.textContent = '⏹ Detener voz';
+      btnNarrarVoz.classList.add('btn--activo');
+      onda?.classList.add('reproductor-moderno__onda--activo');
+      aviso('Narrando canción con voz en vivo en español.', 'info');
+    };
+
+    enunciado.onend = () => {
+      narrando = false;
+      btnNarrarVoz.textContent = '🎙️ Voz en vivo';
+      btnNarrarVoz.classList.remove('btn--activo');
+      onda?.classList.remove('reproductor-moderno__onda--activo');
+    };
+
+    enunciado.onerror = () => {
+      narrando = false;
+      btnNarrarVoz.textContent = '🎙️ Voz en vivo';
+      btnNarrarVoz.classList.remove('btn--activo');
+      onda?.classList.remove('reproductor-moderno__onda--activo');
+    };
+
+    window.speechSynthesis.speak(enunciado);
+  });
 }
 
 // Iniciar reproductor interactivo
