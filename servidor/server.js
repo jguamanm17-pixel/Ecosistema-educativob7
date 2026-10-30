@@ -73,6 +73,8 @@ app.get(
       return res.status(403).json({ error: 'Acceso no autorizado' });
     }
 
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+
     let lista = await almacen.leer(col);
     lista = await ganchos.aplicar(col, 'filtrarLista', lista, req.usuario);
 

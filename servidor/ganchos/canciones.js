@@ -3,30 +3,15 @@ import * as almacen from '../almacen.js';
 import { asignaturasDe, asignaturaDeTema, puedeEditarAsignatura } from '../acceso.js';
 
 /**
- * Filtra las canciones según las asignaturas del usuario (a través del tema)
+ * Filtra las canciones visibles para los usuarios
  * @param {Array} lista - Lista de canciones
  * @param {Object|null} usuario - Usuario en sesión
  * @returns {Promise<Array>}
  */
 export async function filtrarLista(lista, usuario) {
-  if (!Array.isArray(lista) || !usuario) return [];
-  if (usuario.rol === 'admin') return lista;
-
-  const misAsignaturas = await asignaturasDe(usuario);
-  const misAsigIds = new Set(misAsignaturas.map((a) => a.id));
-
-  const temas = await almacen.leer('temas');
-  const unidades = await almacen.leer('unidades');
-
-  const mapaUnidadAsignatura = new Map(unidades.map((u) => [u.id, u.asignaturaId]));
-  const mapaTemaAsignatura = new Map(
-    temas.map((t) => [t.id, mapaUnidadAsignatura.get(t.unidadId)])
-  );
-
-  return lista.filter((cancion) => {
-    const asgId = mapaTemaAsignatura.get(cancion.temaId);
-    return asgId && misAsigIds.has(asgId);
-  });
+  if (!Array.isArray(lista)) return [];
+  // Administradores, docentes y estudiantes tienen acceso al repertorio musical educativo
+  return lista;
 }
 
 /**

@@ -216,7 +216,7 @@ function formatearTiempo(seg) {
 /**
  * Inicializa los controles del reproductor interactivo de la canción
  */
-function inicializarReproductorCancion() {
+async function inicializarReproductorCancion() {
   const seccion = document.getElementById('seccion-cancion-destacada');
   if (!seccion) return;
 
@@ -247,8 +247,52 @@ function inicializarReproductorCancion() {
   const textoToggleLetra = document.getElementById('texto-toggle-letra');
   const contenedorLetra = document.getElementById('cancion-contenedor-letra');
   const imgPortada = document.getElementById('cancion-destacada-img');
+  const tituloElemento = document.getElementById('titulo-cancion-destacada');
+  const pistaElemento = document.querySelector('.reproductor-moderno__pista');
+  const artistaElemento = document.querySelector('.reproductor-moderno__artista');
 
   if (!audio) return;
+
+  // Sincronizar datos dinámicos con la base de datos (canciones editadas por el admin)
+  if (usuario) {
+    try {
+      const canciones = await api.listar('canciones');
+      const cancion = (canciones || []).find((c) => c.titulo?.toLowerCase().includes('seguridad')) || canciones?.[0];
+      if (cancion) {
+        if (tituloElemento && cancion.titulo) {
+          tituloElemento.textContent = `Nuestra canción: «${cancion.titulo}»`;
+        }
+        if (pistaElemento && cancion.titulo) {
+          pistaElemento.textContent = cancion.titulo;
+        }
+        if (artistaElemento && cancion.autoria) {
+          artistaElemento.textContent = `${cancion.autoria} · Ecosistema Educativo`;
+        }
+        if (audio && cancion.audio && audio.src !== cancion.audio) {
+          audio.src = cancion.audio;
+          audio.load();
+        }
+        if (imgPortada && cancion.imagen) {
+          imgPortada.src = cancion.imagen;
+        }
+        if (contenedorLetra && cancion.letra) {
+          const cuerpoLetra = contenedorLetra.querySelector('.reproductor-moderno__letra-cuerpo');
+          if (cuerpoLetra) {
+            cuerpoLetra.innerHTML = '';
+            const estrofas = cancion.letra.split(/\n\s*\n/);
+            estrofas.forEach((est) => {
+              const p = document.createElement('p');
+              p.className = 'estrofa';
+              p.innerHTML = escapar(est).replace(/\n/g, '<br>');
+              cuerpoLetra.appendChild(p);
+            });
+          }
+        }
+      }
+    } catch (errCancion) {
+      console.debug('Aviso al cargar canción dinámica:', errCancion.message);
+    }
+  }
 
   // Fallback si la imagen no cargara
   if (imgPortada) {
@@ -527,4 +571,4 @@ function inicializarReproductorCancion() {
 }
 
 // Iniciar reproductor interactivo
-inicializarReproductorCancion();
+await inicializarReproductorCancion();
